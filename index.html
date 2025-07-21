@@ -17,15 +17,13 @@
     
         <div class= "menu">
         <img src="img/menu_carta_ajuste.jpg"><br><span>MENÚ</span>
-        </div>
+        </div>        
     </header>
 
     <main>    
         
         <div class="descripcion">
-            <p class="descripcion-corta"> Portfolio de desarrollo de aplicaciones multimedia.</p>
-            <p class= "descripcion-larga"> Durante años, me he dedicado a convertir ingredientes en experiencias gastronómicas coherentes, mediante el análisis de sus características así como de sus usos y costumbres en diferentes entornos.<br> Ahora que estoy dando mis primeros pasos en  el mundo de la programación y el análisis de datos, aplico esos mismos principios para transformar información en conocimiento.<br><br>Éste es mi portfolio.  
-            </p>
+            <p> Durante años, me he dedicado a convertir ingredientes en experiencias gastronómicas coherentes mediante el análisis de sus características así como de sus usos y costumbres en diferentes entornos.<br> Ahora que estoy dando mis primeros pasos en  el mundo de la programación y el análisis de datos, aplico esos mismos principios para transformar información en conocimiento.<br><br>Éste es mi portfolio.</p>
         </div>    
     </main>
 
@@ -46,6 +44,18 @@
             <a href="#privacidad">privacidad</a>
         </div>
     </footer>
+
+    <script>
+    function abrirMenu() {
+      document.getElementById('menuLateral').style.display = 'block';
+      document.querySelector('.menu').style.display = 'none';
+    }
+
+    function cerrarMenu() {
+      document.getElementById('menuLateral').style.display = 'none';
+      document.querySelector('.menu').style.display = 'flex';
+    }
+  </script>
 
     </body>
 </html>
