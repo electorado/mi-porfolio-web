@@ -1,29 +1,27 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Crucial para que no desborde por la derecha */   
+    box-sizing: border-box;  /* Crucial para que no desborde por la derecha */
 }
 
 body {
-    background-color: black;
+    background-color: #171616;
     color: #EEE2E2;
     font-family: 'Source Code Pro', monospace;
     line-height: 1.6;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Empuja el footer hacia abajo */
-    
+    min-height: 100vh;  /* Empuja el footer hacia abajo */
 }
- 
+
 main{
-    
+    width: 60%;
     display: block;
-    flex-grow: 1; /* Empuja el footer hacia abajo */
-    padding-top: 20vw;
+    flex-grow: 1;  /* Empuja el footer hacia abajo */
+    padding-top: 17.5vw;
     padding-bottom: 2%;
-    padding-left: 5%;
-    padding-right: 30%;
+    padding-left: 5%;    
     font-size: 1.6vw;
     text-align: justify;
 }
@@ -34,18 +32,18 @@ header {
     padding-top: 2.5%;
     padding-left: 2.5%;
     line-height:0.85;
-    display: flex;    
+    display: flex;     
     justify-content: space-between;
-    background: black; /* Para que no se vea lo de abajo cuando sehace scroll */
-    z-index: 2000; /* Prioriza el contenido de esto sobre lo que esté debajo*/    
-}   
+    background: #171616; /* Para que no se vea lo de abajo cuando sehace scroll */
+    z-index: 2000 !important; /* A mayor número, jerarquiza lo que se pondrá por delante de lo demás */    
+} 
 
-h1{   
+h1{    
     width: 75%;
     font-family: 'Wix Madefor Display', sans-serif;
     font-size: 7.8vw; 
     font-weight: 999;
-    letter-spacing: -0.09em;    
+    letter-spacing: -0.09em;        
     line-height: 0.80em;
     user-select: none;
 }
@@ -53,39 +51,118 @@ h1{
 h1 .nombre-gris{color: #404040;}
 
 .menu{
-    width: 10%;    
-    padding-top: 2.3%;    
+    width: 10%;         
+    padding-top: 2.3%;         
     align-items: center;
     text-align: center;
     line-height: 0.;
     font-size: 2vw;
-    user-select: none;   
+    user-select: none; 
+    cursor: pointer;    
 }
 
-.menu img{    
-    width: 6vw;       
+.menu img{        
+    width: 6vw;          
+}
+
+.menu-desplegado {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 15%; 
+    height: 100%;
+    z-index: 2002 !important; 
+    transition: right 0.5s ease-in-out; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+/* Cuando el menú esté activo (clase 'activo' añadida con JS) */
+.menu-desplegado.activo {
+    right: 0; 
+}
+
+.menu-desplegado .menu-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 0; 
+}
+
+.menu-desplegado .items-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12vw; 
+    text-align: center;
+    align-items: flex-start;
+    z-index: 1; 
+}
+
+.menu-desplegado .items-menu a {
+    color: blue; 
+    text-decoration: none;
+    font-size: 2vw; 
+}
+
+/* Botón de cerrar*/
+.cerrar-menu {         
+    position: absolute;
+    top: 2.5%; 
+    right: 2.5%; 
+    cursor: pointer;
+    z-index: 10; 
+}
+
+.cerrar-menu img {
+    width: 1.5vw; 
+    filter: invert(86%) brightness(100%); 
+    transition: transform 0.2s ease-in-out;
+}
+
+.cerrar-menu img:hover {
+    transform: scale(1.1); 
+}
+
+/* Estilos para el contenido que va sobre la imagen que uso en el menú(carta de ajuste vertical) */
+.contenido-menu-lateral {
+    position: absolute; 
+    color: blue; 
+    font-size: 1.8vw; 
+    text-align: center;
+    width: 80%; 
+    max-width: 600px; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1; 
 }
 
 .pie-de-pagina{ 
-    position: static;
-    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 75%;
     display: flex;
     justify-content: space-between;
-    color:#EEE2E2;
-    font-size: 1.2vw;
-    z-index: 1000; 
+    color:#EEE2E2;     
+    z-index: 2001 !important;
     line-height: 0.8;
-    background: black;
-    padding-right: 2.5%;
+    background: #171616;
+    padding-right: 2%;
     padding-bottom: 0.6%;
 }
 
 .social-iconos {
     width: 33%;
-    display: flex;    
+    display: flex;         
     padding-left: 2.5%;
-    gap: 0.7vw;
-        
+    gap: 0.7vw;             
 }
 
 .social-iconos img {
@@ -95,21 +172,31 @@ h1 .nombre-gris{color: #404040;}
     transition: transform 0.2s ease-in-out;
 }
 
-.legal {
+.legal { 
+    position: fixed; 
+    bottom: 0.6%; 
+    right: 2%;    
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    font-size: 1.2vw;
+    align-items: flex-end; 
     text-align: right;
     min-width: 60px;
     max-width: 250px; 
-    flex-shrink: 0;    
-    line-height: 1.2;   
+    line-height: 1.2;
+    color: gray; 
+    z-index: 2003 !important; 
+    transition: color 0.3s ease-in-out; 
 }
 
-.legal a {
-    
+.legal a { 
     text-decoration: none;
-    color: grey;    
+    color: inherit; 
+}
+
+/* Cambia el color de los textos de .legal para que se vean cuando se despliega el menú */
+.legal.menu-abierto { 
+    color: white !important;    
 }
 
 @media screen and (max-width: 950px) {
@@ -127,9 +214,9 @@ h1 .nombre-gris{color: #404040;}
     }
 
     main{
-       font-size: 4.5vw;
-       padding-top: 25%; 
-       padding-right: 25%;     
+        font-size: 4.5vw;
+        padding-top: 25%; 
+        padding-right: 25%;         
     }
 
     .pie-de-pagina{
@@ -137,10 +224,15 @@ h1 .nombre-gris{color: #404040;}
         bottom: 0;
         left: 0;
         width: 100%;
+        z-index: 2001 !important; 
     }
 
     .legal{
         font-size: 3.6vw;
+        position: fixed; 
+        bottom: 0.6%; 
+        right: 2%;            
+        z-index: 2003 !important; 
     }
 
     .social-iconos{

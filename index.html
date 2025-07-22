@@ -14,10 +14,26 @@
             <br> <span class="apellido1">moncayo</span><span class="apellido2 nombre-gris">vega</span>
             </h1>
         </div>
-    
-        <div class= "menu">
+    <!--esto es experimento-->
+        <!--<div class= "menu">
         <img src="img/menu_carta_ajuste.jpg"><br><span>MENÚ</span>
-        </div>        
+        </div>-->
+        <div class="menu" id="abrirMenu"> <img src="img/menu_carta_ajuste.jpg" alt="Abrir Menú"><br><span>MENÚ</span>
+        </div>
+
+        <div class="menu-desplegado" id="menuLateral">
+            <img src="img/menu_desplegado.jpg" alt="Fondo menú" class="menu-bg">
+            <div class="items-menu">
+                <div class="cerrar-menu" id="cerrarMenu"> 
+                    <img src="img/Equis.jpg" alt="Cerrar Menú"> </div>
+                <a href="#">&lt;Info&gt;</a>
+                <a href="#">&lt;Pro-<br>yectos&gt;</a>
+                <a href="#">&lt;Blog&gt;</a>
+            </div>
+            
+        </div>
+        <!--fin experimento-->   
+        
     </header>
 
     <main>    
@@ -39,23 +55,15 @@
                 <img src="icons/square-envelope-solid.svg">
                 </a>
         </div>
-        <div class="legal">
-            <a href="#aviso-legal">aviso legal</a>
-            <a href="#privacidad">privacidad</a>
-        </div>
+        
     </footer>
 
-    <script>
-    function abrirMenu() {
-      document.getElementById('menuLateral').style.display = 'block';
-      document.querySelector('.menu').style.display = 'none';
-    }
+    <div class="legal"> 
+        <a href="#aviso-legal">aviso legal</a>
+        <a href="#privacidad">privacidad</a>
+    </div>
 
-    function cerrarMenu() {
-      document.getElementById('menuLateral').style.display = 'none';
-      document.querySelector('.menu').style.display = 'flex';
-    }
-  </script>
+    <script src="js/script.js"></script>
 
     </body>
 </html>
