@@ -1,16 +1,17 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;/* Crucial para que no desborde por la derecha */
+    box-sizing: border-box;
+    /* Crucial para que no desborde por la derecha */
 }
 
-html{
-scroll-behavior: smooth;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: #171616;
-    color: #EEE2E2;
+    color: #cfb8b8;
     font-family: 'Source Code Pro', monospace;
     line-height: 1.6;
     display: flex;
@@ -26,8 +27,10 @@ header {
     padding-bottom: 5px;
     display: flex;
     justify-content: space-between;
-    background: #171616;  /* Para que no se vea lo de abajo cuando al hacer scroll */
-    z-index: 2002 !important; /* A mayor número, jerarquiza lo que se pondrá por delante de lo demás */
+    background: #171616;
+    /* Para que no se vea lo de abajo cuando al hacer scroll */
+    z-index: 2002 !important;
+    /* A mayor número, jerarquiza lo que se pondrá por delante de lo demás */
 }
 
 h1 {
@@ -35,7 +38,7 @@ h1 {
     padding-top: 3%;
     padding-left: 2.5%;
     font-family: 'Wix Madefor Display', sans-serif;
-    font-size: clamp(2.3rem, 10.2vw, 14.5rem);
+    font-size: clamp(2.3rem, 9vw, 14.5rem);
     font-weight: 999;
     letter-spacing: -0.09em;
     line-height: 0.75;
@@ -66,7 +69,7 @@ h1 .nombre-gris {
     position: fixed;
     top: 0;
     right: -100%;
-    width: clamp(5.5rem,11vw,15rem);
+    width: clamp(5.5rem, 11vw, 15rem);
     height: 100%;
     z-index: 2002 !important;
     transition: right 0.5s ease-in-out;
@@ -85,7 +88,7 @@ h1 .nombre-gris {
 .menu-desplegado .menu-bg {
     position: absolute;
     top: 0;
-    left: 0; 
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -149,10 +152,8 @@ main {
     font-size: clamp(1.1rem, 1.2vw, 3rem);
     text-align: justify;
     overflow-y: auto;
-    scrollbar-width: none;
-    /* Oculta la barra en Firefox */
-    -ms-overflow-style: none;
-    /* Oculta la barra en IE/Edge */
+    scrollbar-width: none; /* Oculta la barra en Firefox */
+    -ms-overflow-style: none; /* Oculta la barra en IE/Edge */
 }
 
 main::-webkit-scrollbar {
@@ -161,15 +162,14 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    /* Pulgar transparente */
+    background-color: transparent;    
 }
 
 .descripcion {
 
     color: #C5B5B5;
     padding-top: 5vh;
-    padding-bottom: 50vh;
+    padding-bottom: 28vh;
 }
 
 h2 {
@@ -180,28 +180,27 @@ h2 {
 
 h3 {
     font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-weight: 999;
 }
 
 .info-header {
-  display: flex; /* Activa el modo flexible */
-  justify-content: space-between; /* Empuja los elementos a los extremos */
-  align-items: flex-end; /* Alínea los elementos por su base */
-  margin-bottom: 2rem; /* (Opcional) Añade un espacio antes del texto de abajo */
+    display: flex;    
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
 }
 
-/* Estilos para la imagen dentro de ese contenedor */
 .info-header img {
-  height: 12vw; /* Controla el tamaño de la foto */
-  width: 12vw;
-  object-fit: cover; /* Asegura que la foto no se deforme */
-  border-radius: 50%; /* Para hacerla redonda */
-  transform: translate(-4.5vw, 1.6vw);
-  
+    height: 12vw;
+    
+    width: 12vw;
+    object-fit: cover;
+    border-radius: 50%;
+    transform: translate(-4.5vw, 1.6vw);
+
 }
 
-/* Quita los márgenes por defecto del título para un mejor control */
 .info-header h2 {
     margin: 5;
 }
@@ -209,14 +208,14 @@ h3 {
 #info {
     color: #171616;
     width: 100%;
-    height: 100%;    
+    height: 100%;
     background-image: url('../img/ruido.jpg');
     padding: 1.5rem;
     scroll-margin-top: 22rem;
     filter: saturate(70%) contrast(80%);
 }
 
-#info h3  {
+#info h3 {
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
@@ -225,14 +224,60 @@ h3 {
     margin-bottom: 1.5rem;
 }
 
-#info ul{
+#info ul {
     margin-left: 5rem;
 }
 
+#proyectos {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+    scroll-margin-top: 20rem;    
+}
+
+.proyecto {
+  background-color: #252525;
+  padding: 1rem;
+  border-radius: 8px;
+}
 
 
+.proyecto > a {
+  text-decoration: none;
+  color: inherit;        
+}
+
+.proyecto-cuerpo {
+  display: flex;
+  align-items: flex-start; 
+  gap: 1.5rem;  
+  color: #C5B5B5;         
+}
 
 
+.proyecto-cuerpo a {
+  flex-basis: 15%; 
+  flex-shrink: 0;
+}
+
+.proyecto-cuerpo img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+
+.proyecto-cuerpo p {
+  flex-basis: 60%; 
+  margin: 0; 
+}
+
+#intereses {
+scroll-margin-top: -60rem;
+
+}
 
 footer {
     position: fixed;
