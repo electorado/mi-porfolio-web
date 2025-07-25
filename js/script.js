@@ -1,36 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const abrirMenuBtn = document.getElementById('abrirMenu');
-    const cerrarMenuBtn = document.getElementById('cerrarMenu');
-    const menuLateral = document.getElementById('menuLateral');
-    // Obtenemos la referencia al div de los enlaces legales
-    const legalDiv = document.querySelector('.legal'); 
+// --- CÓDIGO DEL POPUP DE COOKIES ---
+const cookiePopup = document.getElementById('cookie-popup');
+const acceptBtn = document.getElementById('accept-cookies-btn');
 
-    function abrirMenu() {
-    menuLateral.classList.add('activo');
-    // document.documentElement.style.overflow = 'hidden'; /* <-- ELIMINA ESTA LÍNEA */
-    if (legalDiv) { 
+// Solo ejecuta el código de cookies si el popup existe en la página
+if (cookiePopup && acceptBtn) {
+    // Comprueba si el usuario ya ha aceptado las cookies
+    if (!localStorage.getItem('cookiesAccepted')) {
+        // Si no las ha aceptado, muestra el popup
+        cookiePopup.classList.add('show');
+    }
+
+    // Cuando el usuario hace clic en "Aceptar"
+    acceptBtn.addEventListener('click', () => {
+        // Guarda la preferencia en el almacenamiento local del navegador
+        localStorage.setItem('cookiesAccepted', 'true');
+        // Oculta el popup
+        cookiePopup.classList.remove('show');
+    });
+}
+
+// --- CÓDIGO DEL MENÚ DESPLEGABLE ---
+const abrirMenuBtn = document.getElementById('abrirMenu');
+const cerrarMenuBtn = document.getElementById('cerrarMenu');
+const menuLateral = document.getElementById('menuLateral');
+const legalDiv = document.querySelector('.legal');
+const menuLinks = document.querySelectorAll('#menuLateral .items-menu a');
+
+function abrirMenu() {
+    if (menuLateral) {
+        menuLateral.classList.add('activo');
+    }
+    if (legalDiv) {
         legalDiv.classList.add('menu-abierto');
     }
 }
 
-    function cerrarMenu() {
-    menuLateral.classList.remove('activo');
-    // document.documentElement.style.overflow = ''; /* <-- ELIMINA ESTA LÍNEA */
-    if (legalDiv) { 
+function cerrarMenu() {
+    if (menuLateral) {
+        menuLateral.classList.remove('activo');
+    }
+    if (legalDiv) {
         legalDiv.classList.remove('menu-abierto');
     }
 }
 
-    if (abrirMenuBtn) {
-        abrirMenuBtn.addEventListener('click', abrirMenu);
-    }
-
-    if (cerrarMenuBtn) {
-        cerrarMenuBtn.addEventListener('click', cerrarMenu);
-    }
-
-    const menuLinks = menuLateral.querySelectorAll('.items-menu a');
+// Solo ejecuta el código del menú si los botones existen
+if (abrirMenuBtn && cerrarMenuBtn && menuLateral) {
+    abrirMenuBtn.addEventListener('click', abrirMenu);
+    cerrarMenuBtn.addEventListener('click', cerrarMenu);
+    
     menuLinks.forEach(link => {
         link.addEventListener('click', cerrarMenu);
     });
-});
+}

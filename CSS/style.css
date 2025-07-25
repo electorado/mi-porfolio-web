@@ -11,7 +11,7 @@ html {
 
 body {
     background-color: #171616;
-    color: #cfb8b8;
+    color: #ebe1e1;
     font-family: 'Source Code Pro', monospace;
     line-height: 1.6;
     display: flex;
@@ -23,8 +23,8 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    padding-top: clamp(rem, 2.5vw, 10rem);
-    padding-bottom: 5px;
+    padding-left: 3%;
+    padding-top: clamp(1rem, 2vw, 10rem);   
     display: flex;
     justify-content: space-between;
     background: #171616;
@@ -34,11 +34,9 @@ header {
 }
 
 h1 {
-    width: 75%;
-    padding-top: 3%;
-    padding-left: 2.5%;
+    width: 75%;      
     font-family: 'Wix Madefor Display', sans-serif;
-    font-size: clamp(2.3rem, 9vw, 14.5rem);
+    font-size: clamp(2.3rem, 5vw, 14.5rem);
     font-weight: 999;
     letter-spacing: -0.09em;
     line-height: 0.75;
@@ -49,20 +47,25 @@ h1 .nombre-gris {
     color: #404040;
 }
 
+.nombre a {
+text-decoration: none;
+color: inherit;
+}
+
 .menu {
-    width: clamp(20%, 22vw);
-    padding-top: 4.5vw;
+    width: clamp(20%, 8vw, 20%);
+    padding-top: 0.5vw;
     padding-right: 2vw;
     align-items: center;
     text-align: center;
     line-height: 0.9;
-    font-size: clamp(1.4rem, 2vw, 3rem);
+    font-size: clamp(1.4rem, 1.7vw, 3rem);
     user-select: none;
     cursor: pointer;
 }
 
 .menu img {
-    width: clamp(4rem, 9vw, 16rem);
+    width: clamp(4rem, 5vw, 16rem);
 }
 
 .menu-desplegado {
@@ -144,12 +147,12 @@ h1 .nombre-gris {
 }
 
 main {
-    width: 69.1%;
+    width: 61%;
     align-self: flex-start;
-    padding-top: clamp(0rem, 18vw, 200rem);
+    padding-top: clamp(0rem, 12vw, 200rem);
     padding-bottom: 15vh;
-    padding-left: 2.3%;
-    font-size: clamp(1.1rem, 1.2vw, 3rem);
+    padding-left: 3.25%;
+    font-size: clamp(1.1rem, 1.1vw, 3rem);
     text-align: justify;
     overflow-y: auto;
     scrollbar-width: none; /* Oculta la barra en Firefox */
@@ -168,13 +171,14 @@ main::-webkit-scrollbar-thumb {
 .descripcion {
 
     color: #C5B5B5;
-    padding-top: 5vh;
-    padding-bottom: 28vh;
+    padding-top: clamp(4rem, 6vw, 8rem);
+    padding-bottom: 19vw;
+    scroll-margin-top: clamp(4rem, 6vw, 8rem);
 }
 
 h2 {
     font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 4vw;
+    font-size: 2.5vw;
     font-weight: 999;
 }
 
@@ -188,12 +192,12 @@ h3 {
     display: flex;    
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 2rem;
+    padding-top: 0;
+    padding-bottom: 5rem;
 }
 
 .info-header img {
-    height: 12vw;
-    
+    height: 12vw;    
     width: 12vw;
     object-fit: cover;
     border-radius: 50%;
@@ -201,9 +205,6 @@ h3 {
 
 }
 
-.info-header h2 {
-    margin: 5;
-}
 
 #info {
     color: #171616;
@@ -211,7 +212,7 @@ h3 {
     height: 100%;
     background-image: url('../img/ruido.jpg');
     padding: 1.5rem;
-    scroll-margin-top: 22rem;
+    scroll-margin-top: 12rem;
     filter: saturate(70%) contrast(80%);
 }
 
@@ -234,7 +235,7 @@ h3 {
     gap: 2.5rem;
     padding-top: 5rem;
     padding-bottom: 10rem;
-    scroll-margin-top: 20rem;    
+    scroll-margin-top: 17rem;    
 }
 
 .proyecto {
@@ -274,23 +275,35 @@ h3 {
   margin: 0; 
 }
 
-#intereses {
-scroll-margin-top: -60rem;
-
+.intereses-container {
+  display: flex;       
+  flex-wrap: wrap;     
+  gap: 1rem;           
+  padding-top: 1.5rem; 
 }
+
+.tag {
+  background-color: #333;
+  color: #EEE2E2;
+  padding: 0.5rem 1rem;
+  border-radius: 20px; /* Para la forma de píldora */
+  border: 1px solid #555;
+  font-size: 0.9rem;
+}
+
 
 footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 75%;
-    height: clam(3%, 8%, 20%);
+    height: clamp(3%, 8%, 20%);
     display: flex;
     justify-content: space-between;
     color: #EEE2E2;
     z-index: 2001 !important;
     background: #171616;
-    padding-left: 2.5%;
+    padding-left: 3.1%;
 }
 
 .social-iconos {
@@ -312,7 +325,7 @@ footer {
     right: 0.5%;
     display: flex;
     flex-direction: column;
-    font-size: clamp(1vw, 9vw);
+    font-size: clamp(1rem, 1.2vw, 1.5vw);
     align-items: flex-end;
     text-align: right;
     line-height: 1.9;
@@ -331,8 +344,37 @@ footer {
     color: white !important;
 }
 
-@media screen and (max-width: 900; ) {
-
-    .menu img {}
-
+.cookie-popup {
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #252525;
+  color: #EEE2E2;
+  padding: 1rem 1.5rem;
+  display: none; 
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5000; 
+  gap: 1rem;
 }
+
+
+.cookie-popup.show {
+  display: flex;
+}
+
+.cookie-popup p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.cookie-popup button {
+  background-color: #0000AE;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

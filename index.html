@@ -12,10 +12,13 @@
 <body>
 
     <header class="encabezado-fijo">
+        
         <div class="nombre">
-            <h1><span class="nombre1">pablo</span><span class="nombre2 nombre-gris">andrés</span>
-                <br> <span class="apellido1">moncayo</span><span class="apellido2 nombre-gris">vega</span>
-            </h1>
+            <a href="#descripcion">
+                <h1><span class="nombre1">pablo</span><span class="nombre2 nombre-gris">andrés</span>
+                    <br> <span class="apellido1">moncayo</span><span class="apellido2 nombre-gris">vega</span>
+                </h1>
+            </a>
         </div>
 
         <div class="menu" id="abrirMenu"> <img src="img/menu_carta_ajuste.jpg" alt="Abrir Menú"><br><span>MENÚ</span>
@@ -38,7 +41,7 @@
 
     <main>
         <div class="main-scroll-content">
-            <div class="descripcion">
+            <div id="descripcion" class="descripcion">
                 <p>Durante años, me he dedicado a convertir y combinar ingredientes en experiencias gastronómicas
                     coherentes mediante el análisis de sus características así como de sus usos y costumbres en
                     diferentes entornos. Ahora que estoy dando mis primeros pasos en  el mundo de la programación y el
@@ -130,65 +133,83 @@
             <div id="proyectos" class="contenido">
                 <h2>Proyectos</h2>
 
-                
 
-                    <article class="proyecto">
+
+                <article class="proyecto">
+                    <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93"
+                        class="project-header" target="_blank" rel="noopener noreferrer">
+                        <h3>Virtualización de sistemas operativos y servidores</h3>
+                    </a>
+
+                    <div class="proyecto-cuerpo">
                         <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93"
-                                class="project-header" target="_blank" rel="noopener noreferrer">
-                        <h3>Virtualización de sistemas operativos y servidores</h3>                        
-                         </a>       
+                            class="project-header" target="_blank" rel="noopener noreferrer">
+                            <img src="img/proyecto-sistemas.png">
+                        </a>
+                        <p>Práctica realizada para el módulo de Sistemas Informáticos, que consiste en crear y
+                            configurar varias máquinas virtuales en VirtualBox: Windos Server, Ubuntu, un arranque
+                            dual de Windows y Ubuntu, además de una virtualización anidada de Debian en Proxmox.</p>
+                    </div>
 
-                        <div class="proyecto-cuerpo">
-                            <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93"
-                                class="project-header" target="_blank" rel="noopener noreferrer">
-                                <img src="img/proyecto-sistemas.png">
-                            </a>
-                            <p>Práctica realizada para el módulo de Sistemas Informáticos, que consiste en crear y
-                                configurar varias máquinas virtuales en VirtualBox: Windos Server, Ubuntu, un arranque
-                                dual de Windows y Ubuntu, además de una virtualización anidada de Debian en Proxmox.</p>
-                        </div>
+                </article>
 
-                    </article>
+                <article class="proyecto">
 
-                    <article class="proyecto">
-
-                        <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93"
-                                class="project-header" target="_blank" rel="noopener noreferrer">    
+                    <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93"
+                        class="project-header" target="_blank" rel="noopener noreferrer">
                         <h3>Gestión de una tienda de chocolate</h3>
+                    </a>
+
+                    <div class="proyecto-cuerpo">
+                        <a href="https://github.com/electorado/tienda-chocolates-java" class="project-header"
+                            target="_blank" rel="noopener noreferrer">
+                            <img src="img/proyecto-Java.png">
                         </a>
+                        <p>Creación de un sistema de gestión de un negocio en consola de Java para el módulo de
+                            Programación, con funciones que permitan la gestión de los clientes, de los productos y las
+                            ventas.</p>
+                    </div>
+                </article>
 
-                        <div class="proyecto-cuerpo">
-                            <a href="https://github.com/electorado/tienda-chocolates-java" class="project-header"
-                                target="_blank" rel="noopener noreferrer">
-                                <img src="img/proyecto-Java.png">
-                            </a>
-                            <p>Creación de un sistema de gestión de un negocio en consola de Java para el módulo de Programación, con funciones que permitan la gestión de los clientes, de los productos y las ventas.</p>
-                        </div>
-                    </article>
-
-                    <article class="proyecto">
-                        <a href="https://github.com/electorado/cuestionario-Python-MPO" class="project-header"
-                                target="_blank" rel="noopener noreferrer">
+                <article class="proyecto">
+                    <a href="https://github.com/electorado/cuestionario-Python-MPO" class="project-header"
+                        target="_blank" rel="noopener noreferrer">
                         <h3>Generador de duestionarios interactivo</h3>
+                    </a>
+                    <div class="proyecto-cuerpo">
+                        <a href="https://github.com/electorado/cuestionario-Python-MPO" class="project-header"
+                            target="_blank" rel="noopener noreferrer">
+                            <img src="img/proyecto-Python.png">
                         </a>
-                        <div class="proyecto-cuerpo">
-                            <a href="https://github.com/electorado/cuestionario-Python-MPO" class="project-header"
-                                target="_blank" rel="noopener noreferrer">
-                                <img src="img/proyecto-Python.png">
-                            </a>
 
 
-                            <p>Desarrollo de una aplicación de consola en Python que permite realizar cuestionarios tipo test. El usuario podrá responder a una serie de preguntas, la aplicación corrige automáticamente as respuestas y muestra la puntuación obtenida al finalizar.</p>
-                        </div>
+                        <p>Desarrollo de una aplicación de consola en Python que permite realizar cuestionarios tipo
+                            test. El usuario podrá responder a una serie de preguntas, la aplicación corrige
+                            automáticamente as respuestas y muestra la puntuación obtenida al finalizar.</p>
+                    </div>
 
-                    </article>
-                </div>
-            
+                </article>
+            </div>
+
 
             <div id="intereses" class="contenido">
-                <h2>Cosas que me interesan...</h2>
-                <p>Aquí irán tus artículos, reflexiones o intereses personales. Haz el contenido largo.</p>
-                <p>Más texto del blog...</p>
+                <h2>Me interesa</h2>
+                <div class="intereses-container">
+                    <span class="tag">percusión</span>
+                    <span class="tag">guitarra</span>
+                    <span class="tag">cocina saludable</span>
+                    <span class="tag">comedia negra</span>
+                    <span class="tag">desarrollo backend</span>
+                    <span class="tag">análisis de datos</span>
+                    <span class="tag">cocina sostenible</span>
+                    <span class="tag">salsa brava</span>
+                    <span class="tag">capoeira angola</span>
+                    <span class="tag">LEGOs</span>
+                    <span class="tag">Música</span>
+                    <span class="tag">música de los 70</span>
+                    <span class="tag">música de los 90</span>
+                    <span class="tag">desarrollo backend</span>
+                </div>
             </div>
 
         </div>
@@ -211,6 +232,13 @@
     <div class="legal">
         <a href="#aviso-legal">aviso legal</a>
         <a href="#privacidad">privacidad</a>
+    </div>
+
+    <div class="cookie-popup" id="cookie-popup">
+        <h3>Bienvenido a mi sitio web</h3>
+        <p>Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas el uso de cookies <a
+                href="#">Saber más</a></p>
+        <button id="accept-cookies-btn">Aceptar</button>
     </div>
 
     <script src="js/script.js"></script>
