@@ -1,8 +1,8 @@
+/* ESTILOS GENERALES Y RAÍZ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Crucial para que no desborde por la derecha */
 }
 
 html {
@@ -16,75 +16,83 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-
 }
 
+h1, h2, h3 {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 999;
+}
+
+h1 {
+    font-size: clamp(2.55rem, 10cqw, 7.5rem);
+    letter-spacing: -0.09em;
+    line-height: 0.75;
+    padding-bottom: 1.5vh;
+    user-select: none;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 5.5cqw, 5rem);
+    user-select: none;
+}
+
+h3 {
+    font-size: clamp(1.1rem, 3.5cqw, 1.7rem);
+}
+
+
+/* ENCABEZADO Y NAVEGACIÓN */
 header {
     position: fixed;
     top: 0;
     width: 100%;
     padding-left: 3%;
-    padding-top: clamp(1rem, 2vw, 10rem);   
+    padding-right: 3%;
+    padding-top: clamp(1.3rem, 5vw, 3rem);
     display: flex;
     justify-content: space-between;
     background: #171616;
-    /* Para que no se vea lo de abajo cuando al hacer scroll */
     z-index: 2002 !important;
-    /* A mayor número, jerarquiza lo que se pondrá por delante de lo demás */
 }
-
-h1 {
-    width: clam(50%, 75vw, 75%);      
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: clamp(2.6rem, 7.5vw, 6.5rem);
-    font-weight: 999;
-    letter-spacing: -0.09em;
-    line-height: 0.75;
-    user-select: none;
-}
-
 
 h1 .nombre-gris {
     color: #404040;
 }
 
 .nombre a {
-text-decoration: none;
-color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 .menu {
-    width: clamp(1%, 12vw, 100%);
-    padding-top: clamp(1%, 1vw, 100%);
-    padding-right: clamp(0.1%, 0.5vw, 100%);
-    align-items: center;
     text-align: center;
     line-height: 0.9;
-    font-size: clamp(0.1rem, 1.7vw, 200rem);
+    font-size: clamp(1.3rem, 4.5cqw, 2rem);
     user-select: none;
     cursor: pointer;
 }
 
 .menu img {
-    width: clamp(0.1rem, 6.5vw, 180rem);
+    padding-top: clamp(0.5rem, 2vw, 1.6rem);
+    width: clamp(3.6rem, 15vw, 6rem)
 }
 
+
+/*  MENÚ DESPLEGABLE */
 .menu-desplegado {
     position: fixed;
     top: 0;
     right: -100%;
-    width: clamp(0.1rem, 11vw, 150rem);
+    width: min(24vw, 210px);
     height: 100%;
     z-index: 2002 !important;
     transition: right 0.5s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 
-/* Cuando el menú esté activo (clase 'activo' añadida con JS) */
 .menu-desplegado.activo {
     right: 0;
 }
@@ -96,14 +104,14 @@ color: inherit;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
+    z-index: -1;
     filter: saturate(99%) contrast(75%);
 }
 
 .menu-desplegado .items-menu {
     display: flex;
     flex-direction: column;
-    gap: 21vh;
+    gap: clamp(9rem, 30vw, 12rem);
     text-align: left;
     z-index: 1;
 }
@@ -111,21 +119,20 @@ color: inherit;
 .menu-desplegado .items-menu a {
     color: #0000AE;
     text-decoration: none;
-    font-size: clamp(0.8vw, 1.8vw, 8vw);
-    font-weight: 525;
+    font-size: clamp(0.9rem, 4cqw, 2.1rem);
+    font-weight: 550;
 }
 
-/* Botón de cerrar*/
 .cerrar-menu {
     position: absolute;
     top: 1%;
-    right: 2.5%;
+    right: 3%;
     cursor: pointer;
     z-index: 10;
 }
 
 .cerrar-menu img {
-    width: clamp(0.1rem, 1.4vw, 100rem);
+    width: clamp(1.5rem, 1.4vw, 100rem);
     filter: brightness(90%);
     transition: transform 0.2s ease-in-out;
 }
@@ -134,30 +141,18 @@ color: inherit;
     transform: scale(1.1);
 }
 
-/* Estilos para el contenido que va sobre la imagen que uso en el menú(carta de ajuste vertical) */
-.contenido-menu-lateral {
-    position: absolute;
-    font-size: clamp(0.1 rem, 1.8vw, 200rem);  
-    text-align: left;
-    /* width: 200%;  */
-    /* max-width: 600px;  */
-    /* top: 50%; 
-    left: 0%;  */
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
 
+/* CONTENIDO PRINCIPAL (MAIN) */
 main {
-    width: 61%;
+    width: min(74%, 150ch);
     align-self: flex-start;
-    padding-top: clamp(0rem, 12vw, 200rem);
-    padding-bottom: 15vh;
     padding-left: 3.25%;
-    font-size: clamp(0.1rem, 1.3vw, 400rem);
+    font-size: clamp(0.8rem, 3.5cqw, 1.2rem);
+    font-weight: 380;
     text-align: justify;
     overflow-y: auto;
-    scrollbar-width: none; /* Oculta la barra en Firefox */
-    -ms-overflow-style: none; /* Oculta la barra en IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 main::-webkit-scrollbar {
@@ -166,167 +161,193 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-thumb {
-    background-color: transparent;    
+    background-color: transparent;
+}
+
+
+/* SECCIONES (General) */
+#info, #proyectos, #intereses {
+    scroll-margin-top: clamp(6rem, 22vw, 17rem);
+    min-height: 85vh;
 }
 
 .descripcion {
-
+    padding-top: clamp(8rem, 35vw, 22rem);
+    min-height: 100vh;
     color: #C5B5B5;
-    padding-top: clamp(0.4rem, 6vw, 800rem);
-    padding-bottom: 19vw;
-    scroll-margin-top: clamp(0.1rem, 12vw, 800rem);
+    scroll-margin-top: clamp(5rem, 6vw, 5rem);
+
 }
 
-h2 {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: clamp(0.000001rem, 3.7vw, 100rem);
-    font-weight: 999;
-    user-select: none;
-}
 
-h3 {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: clamp(0.1rem, 2vw, 100rem);
-    font-weight: 999;
-}
-
+/*  SECCIÓN INFO Y ACORDEÓN */
 #info {
-    color: #171616;
     width: 100%;
     height: 100%;
-    background-image: url('../img/ruido.jpg');
-    padding: 1.5rem;
-    scroll-margin-top: 14rem;
     filter: saturate(70%) contrast(80%);
 }
 
 .info-header {
-    display: flex;    
+    display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    padding-top: 0;
-    padding-bottom: 2.5rem;
+    align-items: last baseline;
     user-select: none;
+    z-index: 100;
+}
+
+.info-header h2 {
+    margin: 0;
 }
 
 .info-header img {
-    height: clamp(0.1rem, 12vw, 100rem);    
-    width: clamp(0.1rem, 12vw, 100rem);
+    height: clamp(6rem, 20vw, 12rem);
+    width: clamp(6rem, 20vw, 12rem);
     object-fit: cover;
     border-radius: 50%;
-    transform: translate(-4.5vw, 1.6vw);    
+    transform: translate(-4.5vw, 1.6vw);
 }
 
-#info h3 {
+.acordeon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     margin-top: 2rem;
-    margin-bottom: 1rem;
 }
 
-#info p {
-    margin-bottom: 1.5rem;
+.acordeon-item {
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-#info ul {
-    margin-left: 5rem;
-}
-
-#proyectos {
+.acordeon-item summary {
     display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    padding-top: 5rem;
-    padding-bottom: 10rem;
-    scroll-margin-top: 8rem; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    background-color: #404040;
+    border: 1px solid #626262;
+    list-style: none;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 700;
+}
+
+.acordeon-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.acordeon-contenido {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    background-color: black;
+    color: #ebe1e1;
+}
+
+.acordeon-contenido li {
+    margin-left: 1.5rem;
+}
+
+.icono-mas {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.acordeon-item[open] {
+    background-color: #252525;
+}
+
+.acordeon-item[open] .icono-mas {
+    transform: rotate(45deg);
+}
+
+
+/* SECCIÓN PROYECTOS */
+
+.proyectos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .proyecto {
-  background-color: #252525;
-  padding: 1rem;
-  border-radius: 8px;
+    flex-basis: calc(33.333% - 1rem);
+    flex-grow: 1;
+    background-color: #252525;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
-
-.proyecto > a {
-  text-decoration: none;
-  color: inherit;        
+a.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
 }
 
-.proyecto-cuerpo {
-  display: flex;
-  align-items: flex-start; 
-  gap: 1.5rem;  
-  color: #C5B5B5;         
-}
-
-
-.proyecto-cuerpo a {
-  flex-basis: 15%; 
-  flex-shrink: 0;
-}
-
-.proyecto-cuerpo img {
-    padding-top: 0.6vw;
-    width: 100%;
-    height: auto;
+a.project-header img {
+    width: 35%;
+    height: 35%px;
+    object-fit: cover;
+    flex-shrink: 0;
     border-radius: 4px;
 }
 
-
-.proyecto-cuerpo p {
-  flex-basis: 60%; 
-  margin: 0; 
+.proyecto p {
+    margin-top: 1rem;
+    color: #C5B5B5;
 }
 
-#intereses{
-    scroll-margin-top: 14rem;
-}
 
+/*  SECCIÓN INTERESES */
 .intereses-container {
-  display: flex;       
-  flex-wrap: wrap;     
-  gap: 1rem;           
-  padding-top: 1.5rem; 
-  padding-bottom: 25rem;  
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 25rem;
 }
 
 .tag {
-  background-color: #333;
-  color: #EEE2E2;
-  padding: 0.5rem 1rem;
-  border-radius: 20px; /* Para la forma de píldora */
-  border: 1px solid #555;
-  font-size: 1.2rem;
+    background-color: #333;
+    color: #EEE2E2;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #555;
+    font-size: clamp(1.1rem, 1.2cqw, 5rem);
 }
 
 
+/*  FOOTER Y LEGAL */
 footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 61%;
-    height: clamp(3%, 8%, 20%);
+    width: 75%;
+    height: clamp(3.4rem, 8vw, 4.5rem);
     display: flex;
     font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 0.9rem;
+    font-size: clamp(0.7rem, 0.9vw, 5rem);
     color: #616161;
     justify-content: space-between;
     align-items: flex-end;
-    text-align: left;
-    color: #616161;
+    text-align: right;
     z-index: 2001 !important;
     background: #171616;
     padding-left: 3.1%;
 }
 
 .social-iconos {
-    width: 50%;
     display: flex;
-    gap: 0.7vw;
-
+    gap: clamp(0.9rem, 3vw, 1.2rem);
 }
 
 .social-iconos img {
-    width: clamp(0.1rem, 3vw, 100rem);
+    width: clamp(2.3rem, 6.5vw, 3.3rem);
     filter: invert(86%) brightness(100%);
     transition: transform 0.2s ease-in-out;
 }
@@ -338,10 +359,10 @@ footer {
     display: flex;
     flex-direction: column;
     font-family: 'Wix Madefor Display', sans-serif;
-    font-size: clamp(0.1rem, 0.9vw, 100rem);
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
     align-items: flex-end;
-    text-align: right;
-    line-height: 1.9;
+    line-height: 1.3;
+    gap: 0.6rem;
     color: #616161;
     z-index: 2003 !important;
     transition: color 0.3s ease-in-out;
@@ -352,42 +373,119 @@ footer {
     color: inherit;
 }
 
-/* Cambia el color de los textos de .legal para que se vean cuando se despliega el menú */
 .legal.menu-abierto {
     color: white !important;
 }
 
+/* POPUP DE COOKIES */
+
 .cookie-popup {
-  position: fixed; 
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #252525;
-  color: #EEE2E2;
-  padding: 1rem 1.5rem;
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 5000; 
-  gap: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #857777;
+    color: #EEE2E2;
+    padding: 1rem 1.5rem;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5000;
+    gap: 1rem;
 }
 
-
 .cookie-popup.show {
-  display: flex;
+    display: flex;
 }
 
 .cookie-popup p {
-  margin: 0;
-  font-size: clamp(0.1rem, 0.9rem, 100rem);
+    margin: 0;
+    font-size: clamp(0.1rem, 0.9rem, 100rem);
 }
 
 .cookie-popup button {
-  background-color: #0000AE;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
+    background-color: blue;
+    color: rgb(236, 224, 224);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
+@media screen and (orientation: landscape) and (max-height: 500px) {
+
+    header {
+        height: 28%;
+    }
+
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    h2{
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    #info, #proyectos, #intereses {
+        scroll-margin-top: 6.8rem;
+    }
+
+    #info p, #info ul, #proyectos p, #proyectos ul, #intereses p, #intereses ul {
+        font-size: 1.7cqw;        
+    }
+
+    .menu {        
+        font-size: 2cqw;
+    }
+
+    .menu img {
+        padding-top: 0;
+        width: 9vw;
+    }
+
+    
+    .menu-desplegado {
+        width: 15%;
+    }
+
+    .menu-desplegado .items-menu {
+        gap: 2rem;        
+    }
+    
+    .menu-desplegado .items-menu a {
+        font-size: 1.2rem;
+    }
+
+    .descripcion {
+        padding-top: 7.5rem;
+        font-size: 1.7cqw;
+    }
+   
+    .info-header img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .proyecto {
+    flex-basis: calc(50% - 1rem);
+    }
+
+    .tag{
+        font-size: 1.7cqw;
+    }
+
+    footer{
+        height: 12vh;
+    }
+
+    .social-iconos img {
+        width: 4vw;
+    }
+
+    .legal {
+     font-size: 1.4cqw;
+    }

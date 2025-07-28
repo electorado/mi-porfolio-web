@@ -30,6 +30,9 @@ function abrirMenu() {
     if (menuLateral) {
         menuLateral.classList.add('activo');
     }
+     if (abrirMenuBtn) {
+        abrirMenuBtn.style.visibility = 'hidden'; 
+    }
     if (legalDiv) {
         legalDiv.classList.add('menu-abierto');
     }
@@ -38,6 +41,9 @@ function abrirMenu() {
 function cerrarMenu() {
     if (menuLateral) {
         menuLateral.classList.remove('activo');
+    }
+    if (abrirMenuBtn) {
+        abrirMenuBtn.style.visibility = 'visible'; 
     }
     if (legalDiv) {
         legalDiv.classList.remove('menu-abierto');
@@ -53,3 +59,19 @@ if (abrirMenuBtn && cerrarMenuBtn && menuLateral) {
         link.addEventListener('click', cerrarMenu);
     });
 }
+
+const acordeonItems = document.querySelectorAll('.acordeon-item');
+
+acordeonItems.forEach(item => {
+  item.addEventListener('toggle', (event) => {
+    // Si el item se ha abierto...
+    if (item.open) {
+      // ...cierra todos los demás
+      acordeonItems.forEach(otroItem => {
+        if (otroItem !== item) {
+          otroItem.open = false;
+        }
+      });
+    }
+  });
+});
