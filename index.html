@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio personal</title>
+    <title>Pablo Andrés Moncayo Vega | Portfolio personal</title>
     <link rel="icon" href="icons/icono-web.jpg">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,29 +13,40 @@
 
     <header class="encabezado-fijo">
 
-        <div class="nombre">
-            <a href="#descripcion">
-                <h1><span class="nombre1">pablo</span><span class="nombre2 nombre-gris">andrés</span>
-                    <br> <span class="apellido1">moncayo</span><span class="apellido2 nombre-gris">vega</span>
-                </h1>
+        <h1 class="nombre">
+            <a href="#descripcion" aria-label="Pablo Andrés Moncayo Vega - Ir al inicio">
+                <span class="nombre1">pablo</span><span class="nombre2 nombre-gris">andrés</span>
+                <br aria-hidden="true">
+                <span class="apellido1">moncayo</span><span class="apellido2 nombre-gris">vega</span>
             </a>
-        </div>
+        </h1>
 
-        <div class="menu" id="abrirMenu"> <img src="img/menu_carta_ajuste.jpg" alt="Abrir Menú"><br><span>MENÚ</span>
-        </div>
+        <button type="button" class="menu" id="abrirMenu" aria-expanded="false" aria-controls="menuLateral" aria-label="Abrir menú de navegación">
+            <svg class="icono-carta-ajuste" width="42" height="28" viewBox="0 0 70 46" aria-hidden="true" focusable="false">
+                <rect x="0" y="0" width="10" height="46" fill="#FFFFFF" />
+                <rect x="10" y="0" width="10" height="46" fill="#FFFF00" />
+                <rect x="20" y="0" width="10" height="46" fill="#00FFFF" />
+                <rect x="30" y="0" width="10" height="46" fill="#00FF00" />
+                <rect x="40" y="0" width="10" height="46" fill="#FF00FF" />
+                <rect x="50" y="0" width="10" height="46" fill="#FF0000" />
+                <rect x="60" y="0" width="10" height="46" fill="#0000FF" />
+            </svg>
+            <span class="menu-texto">MENÚ</span>
+        </button>
 
-        <div class="menu-desplegado" id="menuLateral">
-            <img src="img/menu_desplegado.jpg" alt="Fondo menú" class="menu-bg">
+        <nav class="menu-desplegado" id="menuLateral" aria-label="Navegación principal">
             <div class="items-menu">
-                <div class="cerrar-menu" id="cerrarMenu">
-                    <img src="img/Equis.jpg" alt="Cerrar Menú">
-                </div>
-                <a href="#info">&lt;Info&gt;</a>
-                <a href="#proyectos">&lt;Mis<br>proyectos&gt;</a>
-                <a href="#intereses">&lt;Me<br>interesa&gt;</a>
+                <button type="button" class="cerrar-menu" id="cerrarMenu" aria-label="Cerrar menú de navegación">
+                    <svg class="icono-cerrar" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="#info">Info</a>
+                <a href="#proyectos">Mis<br>proyectos</a>
+                <a href="#intereses">Me<br>interesa</a>
             </div>
-
-        </div>
+        </nav>
 
     </header>
 
@@ -52,7 +63,7 @@
             <div id="info" class="contenido">
                 <div class="info-header">
                     <h2>Sobre mí</h2>
-                    <img src="img/foto-perfil.jpg" alt="Foto de Pablo Moncayo">
+                    <img src="img/foto-perfil.jpg" alt="Fotografía de perfil de Pablo Moncayo" width="990" height="1233" loading="lazy" decoding="async">
                 </div>
 
                 <p>
@@ -69,124 +80,84 @@
                     Actualmente, estoy tomándome un periodo sabático para mi reinvención profesional.
                 </p>
 
-                <div class="acordeon-grid">
-                    <details class="acordeon-item">
-                        <summary>
-                            <span>Estudios</span>
-                            <span class="icono-mas">+</span>
-                        </summary>
-                        <div class="acordeon-contenido">
-                            <ul>
-                                <li>
-                                    <strong>Técnico superior en diseño de aplicaciones multimedia</strong><br>
-                                    <small>Prometeo(The PowerFP) (02/2025-fecha prevista de
-                                        finalización:02/2027)</small>
-                                </li>
+                <div class="info-grid">
+                    <section class="info-card" aria-labelledby="titulo-estudios">
+                        <h3 id="titulo-estudios">Estudios</h3>
+                        <ul>
+                            <li>
+                                <strong>Técnico superior en diseño de aplicaciones multimedia</strong><br>
+                                <small>Prometeo (The PowerFP) (02/2025 - fecha prevista de finalización: 02/2027)</small>
+                            </li>
+                            <li>
+                                <strong>Formación pedagógica y didáctica para profesores técnicos en Formación Profesional</strong><br>
+                                <small>Universidad Politécnica de Cartagena (01/2019 - 02/2020)</small>
+                            </li>
+                            <li>
+                                <strong>Técnico superior en cocina y restauración (BTS hôtellerie-restauration)</strong><br>
+                                <small>Lycée des métiers de l'hôtellerie de Biarritz, Francia (09/2003 - 06/2005)</small>
+                            </li>
+                            <li>
+                                <strong>Tecnólogo en gastronomía</strong><br>
+                                <small>Universidad Tecnológica Equinoccial, Quito-Ecuador (09/1999 - 07/2003)</small>
+                            </li>
+                        </ul>
+                    </section>
 
-                                <li>
-                                    <strong>Formación pedagógica y didáctica para profesores técnicos en Formación
-                                        Profesional</strong><br>
-                                    <small>Universidad Politécnica de Cartagena (01/2019-02/2020)</small>
-                                </li>
-                                <li>
-                                    <strong>Técnico superior en cocina y restauración (BTS
-                                        hôtellerie-restauration)</strong><br>
-                                    <small>Lycée des métiers de l'hôtellerie de Biarritz, Francia
-                                        (09/2003-06/2005)</small>
-                                </li>
-                                <li>
-                                    <strong>Tecnólogo en gastronomía</strong><br>
-                                    <small>Universidad Tecnológica Equinoccial, Quito-Ecuador (09/1999-07/2003)</small>
-                                </li>
-                            </ul>
-                        </div>
-                    </details>
+                    <section class="info-card" aria-labelledby="titulo-cursos">
+                        <h3 id="titulo-cursos">Cursos</h3>
+                        <ul>
+                            <li>
+                                <strong>Google AI essentials</strong><br>
+                                <small>Coursera (02/2025)</small>
+                            </li>
+                            <li>
+                                <strong>Google data analytics professional certificate</strong><br>
+                                <small>Coursera (11/2024 - 02/2025)</small>
+                            </li>
+                            <li>
+                                <strong>Google prompting essentials</strong><br>
+                                <small>Coursera (02/2025)</small>
+                            </li>
+                            <li>
+                                <strong>Docencia de la formación profesional para el empleo</strong><br>
+                                <small>Servicio Público de Empleo Estatal (11/2018 - 05/2019)</small>
+                            </li>
+                            <li>
+                                <strong>Gestión de la cocina sostenible en restauración escolar</strong><br>
+                                <small>Centro de Estudios Rurales y Agricultura Internacional (CERAI) (09/2018 - 10/2018)</small>
+                            </li>
+                        </ul>
+                    </section>
 
-                    <details class="acordeon-item">
-                        <summary>
-                            <span>Cursos</span>
-                            <span class="icono-mas">+</span>
-                        </summary>
-                        <div class="acordeon-contenido">
-                            <ul>
-                                <li>
-                                    <strong>Google AI essentials</strong><br>
-                                    <small>Coursera (02/2025)</small>
-                                </li>
+                    <section class="info-card" aria-labelledby="titulo-experiencia">
+                        <h3 id="titulo-experiencia">Experiencia</h3>
+                        <ul>
+                            <li><strong>Profesor de certificados de profesionalidad</strong> - Instituto IEAE (06/2024 - 12/2024)</li>
+                            <li><strong>Jefe de partida</strong> - Franquicias NECO, Valencia (05/2023 - 06/2022)</li>
+                            <li><strong>Cocinero</strong> - Hospital General, Valencia (02/2022 - 05/2023)</li>
+                            <li><strong>Jefe de cocina</strong> - Rayuela, Valencia (11/2015 - 03/2018)</li>
+                            <li><strong>Jefe de cocina</strong> - Maíz Bistró, Valencia (09/2012 - 11/2015)</li>
+                            <li><strong>Segundo de cocina</strong> - Etxola Bambou, Anglet-Francia (temporada estival en 2006 y 2012)</li>
+                            <li><strong>Jefe de partida</strong> - MON, Valencia (09/2011 - 05/2012)</li>
+                            <li><strong>Jefe de partida</strong> - Les Nits, Valencia (12/2010 - 07/2011)</li>
+                            <li><strong>Jefe de cocina</strong> - Cañas y Tapas, Madrid (12/2007 - 01/2009)</li>
+                            <li><strong>Cocinero</strong> - Fausto, Santander (10/2006 - 02/2007)</li>
+                            <li><strong>Segundo de Cocina</strong> - Rincón de Puembo, Puembo-Ecuador (05/2002 - 06/2003)</li>
+                            <li><strong>Stage</strong> - Potel et Chabot, Paris-Francia (05/2004 - 09/2004)</li>
+                            <li><strong>Aprendiz de cocina</strong> - Hilton-Colón, Quito-Ecuador (01/1998 - 06/1999)</li>
+                        </ul>
+                    </section>
 
-                                <li>
-                                    <strong>Google data analytics professional certificate</strong><br>
-                                    <small>Coursera (11/2024-02/2025)</small>
-                                </li>
-
-                                <li>
-                                    <strong>Google prompting essentials</strong><br>
-                                    <small>Coursera (02/2025)</small>
-                                </li>
-
-                                <li>
-                                    <strong>Docencia de la formación profesional para el empleo</strong><br>
-                                    <small>Servicio Público de Empleo Estatal (11/2018-05/2019)</small>
-                                </li>
-
-                                <li>
-                                    <strong>Docencia de la formación profesional para el empleo</strong><br>
-                                    <small>Servicio Público de Empleo Estatal (11/2018-05/2019)</small>
-                                </li>
-                                <li>
-                                    <strong>Gestión de la cocina sostenible en restauración escolar</strong><br>
-                                    <small>Centro de Estudios Rurales y Agricultura Internacional (CERAI)
-                                        (09/2018-10/2018)</small>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </details>
-
-                    <details class="acordeon-item">
-                        <summary>
-                            <span>Experiencia</span>
-                            <span class="icono-mas">+</span>
-                        </summary>
-                        <div class="acordeon-contenido">
-                            <ul>
-                                <li><strong>Profesor de certificados de profesionalidad</strong> - Instituto IEAE
-                                    (06/2024-12/2024)</li>
-                                <li><strong>Jefe de partida</strong> - Franquicias NECO, Valencia (05/2023-06/2022)</li>
-                                <li><strong>Cocinero</strong> - Hospital General, Valencia (02/2022-05/2023)</li>
-                                <li><strong>Jefe de cocina</strong> - Rayuela, Valencia (11/2015-03/2018)</li>
-                                <li><strong>Jefe de cocina</strong> - Maíz Bistró, Valencia (09/2012-11/2015)</li>
-                                <li><strong>Segundo de cocina</strong> - Etxola Bambou, Anglet-Francia (temporada
-                                    estival en 2006 y 2012)</li>
-                                <li><strong>Jefe de partida</strong> - MON, Valencia (09/2011-05/2012)</li>
-                                <li><strong>Jefe de partida</strong> - Les Nits, Valencia (12/2010-07/2011)</li>
-                                <li><strong>Jefe de cocina</strong> - Cañas y Tapas, Madrid (12/2007-01/2009)</li>
-                                <li><strong>Cocinero</strong> - Fausto, Santander (10/2006-02/2007)</li>
-                                <li><strong>Segundo de Cocina</strong> - Rincón de Puembo, Puembo-Ecuador
-                                    (05/2002-06/2003)</li>
-                                <li><strong>Stage</strong> - Potel et Chabot, Paris-Francia (05/2004-09/2004)</li>
-                                <li><strong>Aprendiz de cocina</strong> - Hilton-Colón, Quito-Ecuador (01/1998-06/1999)
-                                </li>
-                            </ul>
-                        </div>
-                    </details>
-
-                    <details class="acordeon-item">
-                        <summary>
-                            <span>Idiomas</span>
-                            <span class="icono-mas">+</span>
-                        </summary>
-                        <div class="acordeon-contenido">
-                            <ul>
-                                <li><strong>Francés: B2</strong></li>
-                                <li><strong>Inglés: B1</strong></li>
-                                <li><strong>Valenciano: A2</strong></li>
-                                <li><strong>Portugués: básico</strong></li>
-                            </ul>
-                        </div>
-                    </details>
+                    <section class="info-card" aria-labelledby="titulo-idiomas">
+                        <h3 id="titulo-idiomas">Idiomas</h3>
+                        <ul>
+                            <li><strong>Francés:</strong> B2</li>
+                            <li><strong>Inglés:</strong> B1</li>
+                            <li><strong>Valenciano:</strong> A2</li>
+                            <li><strong>Portugués:</strong> básico</li>
+                        </ul>
+                    </section>
                 </div>
-
 
             </div>
 
@@ -194,47 +165,42 @@
                 <h2>Proyectos</h2>
 
                 <div class="proyectos-grid">
+                    <article class="proyecto">
+                        <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93"
+                            class="project-header" target="_blank" rel="noopener noreferrer">
+                            <h3>Virtualización de sistemas operativos y servidores</h3>
+                            <img src="img/proyecto-sistemas.png" alt="Captura del proyecto de virtualización de sistemas operativos y servidores" width="2048" height="2048" loading="lazy" decoding="async">
+                        </a>
 
-                <article class="proyecto">
-                    <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93"
-                        class="project-header" target="_blank" rel="noopener noreferrer">
-                        <h3>Virtualización de sistemas operativos y servidores</h3>
-                        <img src="img/proyecto-sistemas.png">
-                    </a>
+                        <p>Práctica realizada para el módulo de Sistemas Informáticos, que consiste en crear y
+                            configurar varias máquinas virtuales en VirtualBox: Windows Server, Ubuntu, un arranque
+                            dual de Windows y Ubuntu, además de una virtualización anidada de Debian en Proxmox.</p>
+                    </article>
 
-                    <p>Práctica realizada para el módulo de Sistemas Informáticos, que consiste en crear y
-                        configurar varias máquinas virtuales en VirtualBox: Windows Server, Ubuntu, un arranque
-                        dual de Windows y Ubuntu, además de una virtualización anidada de Debian en Proxmox.</p>
+                    <article class="proyecto">
+                        <a href="https://github.com/electorado/tienda-chocolates-java"
+                            class="project-header" target="_blank" rel="noopener noreferrer">
+                            <h3>Gestión de una tienda de chocolate</h3>
+                            <img src="img/proyecto-Java.png" alt="Captura de la aplicación de gestión de tienda de chocolates desarrollada en Java" width="2048" height="2048" loading="lazy" decoding="async">
+                        </a>
 
-                </article>
+                        <p>Creación de un sistema de gestión de un negocio en consola de Java para el módulo de
+                            Programación, con funciones que permitan la gestión de los clientes, de los productos y las
+                            ventas.</p>
+                    </article>
 
-                <article class="proyecto">
-
-                    <a href="https://github.com/electorado/tienda-chocolates-java"
-                        class="project-header" target="_blank" rel="noopener noreferrer">
-                        <h3>Gestión de una tienda de chocolate</h3>
-                        <img src="img/proyecto-Java.png">
-                    </a>
-
-                    <p>Creación de un sistema de gestión de un negocio en consola de Java para el módulo de
-                        Programación, con funciones que permitan la gestión de los clientes, de los productos y las
-                        ventas.</p>
-
-                </article>
-
-                <article class="proyecto">
-                    <a href="https://github.com/electorado/cuestionario-Python-MPO" class="project-header"
-                        target="_blank" rel="noopener noreferrer">
-                        <h3>Generador de cuestionarios interactivo</h3>
-                        <img src="img/proyecto-Python.png">
-                    </a>
-                    <p>Desarrollo de una aplicación de consola en Python que permite realizar cuestionarios tipo
-                        test. El usuario podrá responder a una serie de preguntas, la aplicación corrige
-                        automáticamente as respuestas y muestra la puntuación obtenida al finalizar.</p>
-                </article>
-                </div>    
+                    <article class="proyecto">
+                        <a href="https://github.com/electorado/cuestionario-Python-MPO" class="project-header"
+                            target="_blank" rel="noopener noreferrer">
+                            <h3>Generador de cuestionarios interactivo</h3>
+                            <img src="img/proyecto-Python.png" alt="Captura del generador interactivo de cuestionarios desarrollado en Python" width="2048" height="2048" loading="lazy" decoding="async">
+                        </a>
+                        <p>Desarrollo de una aplicación de consola en Python que permite realizar cuestionarios tipo
+                            test. El usuario podrá responder a una serie de preguntas, la aplicación corrige
+                            automáticamente las respuestas y muestra la puntuación obtenida al finalizar.</p>
+                    </article>
+                </div>
             </div>
-
 
             <div id="intereses" class="contenido">
                 <h2>Me interesa</h2>
@@ -255,23 +221,21 @@
                     <span class="tag">música de los 70</span>
                     <span class="tag">música de los 90</span>
                     <span class="tag">meditación</span>
-
                 </div>
-
             </div>
-        </div>    
+        </div>
     </main>
 
     <footer>
         <div class="social-iconos">
-            <a href="https://www.linkedin.com/in/pablomoncayovega/" target="_blank">
-                <img src="icons/linkedin-brands.svg">
+            <a href="https://www.linkedin.com/in/pablomoncayovega/" target="_blank" rel="noopener noreferrer" aria-label="Perfil de LinkedIn de Pablo Moncayo">
+                <img src="icons/linkedin-brands.svg" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true">
             </a>
-            <a href="https://github.com/electorado" target="_blank">
-                <img src="icons/github-brands.svg">
+            <a href="https://github.com/electorado" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub de Pablo Moncayo">
+                <img src="icons/github-brands.svg" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true">
             </a>
-            <a href="mailto:pamoncayo@gmail.com">
-                <img src="icons/square-envelope-solid.svg">
+            <a href="mailto:pamoncayo@gmail.com" aria-label="Enviar correo electrónico a Pablo Moncayo">
+                <img src="icons/square-envelope-solid.svg" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true">
             </a>
             <p>© 2025 Pablo A.<br> Moncayo Vega</p>
         </div>
@@ -279,14 +243,13 @@
 
     <div class="legal">
         <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Política de<br>privacidad</a>
-        
     </div>
 
-    <div class="cookie-popup" id="cookie-popup">
+    <div class="cookie-popup" id="cookie-popup" role="region" aria-label="Aviso sobre cookies">
         <h3>Bienvenido a mi sitio web</h3>
         <p>Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas el uso de cookies <a
                 href="privacidad.html" target="_blank" rel="noopener noreferrer">Saber más</a></p>
-        <button id="accept-cookies-btn">Aceptar</button>
+        <button id="accept-cookies-btn" type="button">Aceptar</button>
     </div>
 
     <script src="js/script.js"></script>
