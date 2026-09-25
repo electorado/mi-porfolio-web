@@ -23,8 +23,6 @@ if (cookiePopup && acceptBtn) {
 const abrirMenuBtn = document.getElementById('abrirMenu');
 const cerrarMenuBtn = document.getElementById('cerrarMenu');
 const menuLateral = document.getElementById('menuLateral');
-const legalDiv = document.querySelector('.legal');
-const menuLinks = document.querySelectorAll('#menuLateral .items-menu a');
 
 function abrirMenu() {
     if (menuLateral) {
@@ -62,11 +60,8 @@ if (abrirMenuBtn && cerrarMenuBtn && menuLateral) {
         cerrarMenu(true);
     });
 
-    menuLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-            cerrarMenu(false);
-        });
-    });
+    // El menú permanece abierto mientras se navega por los enlaces.
+    // Solo se cierra manualmente mediante el botón de cierre (X), la tecla Escape o al hacer clic fuera.
 
     // Soporte para teclado: cerrar menú lateral con Escape y devolver el foco
     document.addEventListener('keydown', (event) => {
