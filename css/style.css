@@ -17,7 +17,7 @@
 
 /* VARIABLES GLOBALES Y RESET */
 :root {
-    --header-height: clamp(6.5rem, 14vw, 8.5rem);
+    --header-height: clamp(7.5rem, 16vw, 10rem);
     --menu-width: min(28vw, 230px);
     --color-bg: #171616;
     --color-text: #ebe1e1;
@@ -247,17 +247,18 @@ main {
     text-align: justify;
 }
 
-/* SECCIONES Y DESPLAZAMIENTO NORMALIZADO */
+/* SECCIONES Y DESPLAZAMIENTO NORMALIZADO CON MARGEN SEGURO */
 #info, #proyectos, #intereses {
-    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+    scroll-margin-top: clamp(10.5rem, 22vw, 17rem);
     min-height: 85vh;
 }
 
+/* LANDING PAGE: ESPACIADO GENEROSO PARA QUE EL TEXTO NO QUEDE PEGADO AL NOMBRE */
 .descripcion {
-    padding-top: clamp(8rem, 25vh, 18rem);
+    padding-top: clamp(13rem, 28vh, 22rem);
     min-height: 100vh;
     color: #C5B5B5;
-    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+    scroll-margin-top: clamp(10.5rem, 22vw, 17rem);
 }
 
 /* SECCIÓN INFO Y PRESENTACIÓN CON FOTO ALINEADA */
@@ -526,6 +527,14 @@ body.menu-abierto footer {
         padding-right: 1.5rem;
     }
 
+    .descripcion {
+        padding-top: clamp(10rem, 28vh, 14rem);
+    }
+
+    #info, #proyectos, #intereses {
+        scroll-margin-top: clamp(9rem, 26vw, 12rem);
+    }
+
     .info-presentacion {
         flex-direction: column-reverse;
         align-items: center;
@@ -590,7 +599,7 @@ body.menu-abierto footer {
     }
 
     #info, #proyectos, #intereses {
-        scroll-margin-top: calc(var(--header-height) + 1rem);
+        scroll-margin-top: 6.8rem;
     }
 
     #info p, #info ul, #proyectos p, #proyectos ul, #intereses p, #intereses ul {
