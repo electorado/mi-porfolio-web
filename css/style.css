@@ -18,6 +18,7 @@
 /* VARIABLES GLOBALES Y RESET */
 :root {
     --header-height: clamp(6.5rem, 14vw, 8.5rem);
+    --menu-width: min(28vw, 230px);
     --color-bg: #171616;
     --color-text: #ebe1e1;
     --color-accent: #0000ae;
@@ -110,7 +111,7 @@ header {
     color: #404040;
 }
 
-/* BOTÓN DE MENÚ */
+/* BOTÓN DE MENÚ (INSPIRADO EN LA CARTA DE AJUSTES PHILIPS / SMPTE RETRO) */
 button.menu {
     background: transparent;
     border: none;
@@ -127,19 +128,20 @@ button.menu {
     justify-content: center;
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 button.menu:hover {
     opacity: 0.85;
+    transform: scale(1.04);
 }
 
 .icono-carta-ajuste {
-    width: clamp(3.2rem, 12vw, 5.2rem);
+    width: clamp(3.4rem, 12vw, 5.2rem);
     height: auto;
-    border-radius: 3px;
+    border-radius: 4px;
     display: block;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .menu-texto {
@@ -153,7 +155,7 @@ button.menu:hover {
     position: fixed;
     top: 0;
     right: -100%;
-    width: min(28vw, 230px);
+    width: var(--menu-width);
     height: 100%;
     z-index: 40;
     transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -403,37 +405,43 @@ a.project-header img {
     font-size: clamp(1.1rem, 1.2cqw, 5rem);
 }
 
-/* FOOTER Y LEGAL */
+/* BARRA INFERIOR (FOOTER GLOBAL INTEGRADO) */
 footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: auto;
-    max-width: 68%;
-    height: clamp(2.4rem, 5vw, 3rem);
+    width: 100%;
+    height: clamp(2.8rem, 5.5vw, 3.4rem);
     display: flex;
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: clamp(0.65rem, 0.85vw, 0.9rem);
-    color: #616161;
+    justify-content: space-between;
     align-items: center;
-    z-index: 10;
+    font-family: 'Wix Madefor Display', sans-serif;
+    color: #616161;
+    z-index: 20;
     background: var(--color-bg);
     padding-left: 3.1%;
-    padding-right: 1.25rem;
+    padding-right: 3.1%;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+}
+
+/* Cuando el menú lateral está abierto, la barra llega exactamente hasta el menú */
+body.menu-abierto footer {
+    width: calc(100% - var(--menu-width));
+    padding-right: 1.5rem;
 }
 
 .social-iconos {
     align-items: center;
-    font-size: clamp(0.55rem, 2vw, 0.85rem);
+    font-size: clamp(0.6rem, 1vw, 0.9rem);
     line-height: 1.2;
     display: flex;
-    gap: clamp(0.5rem, 1.5vw, 0.85rem);
+    gap: clamp(0.6rem, 1.5vw, 1rem);
 }
 
-/* Iconos de barra inferior más discretos y proporcionados */
+/* Iconos de barra inferior en ordenador (elegantes y discretos) */
 .social-iconos img {
-    width: clamp(1.2rem, 2vw, 1.5rem);
-    height: clamp(1.2rem, 2vw, 1.5rem);
+    width: clamp(1.25rem, 1.6vw, 1.55rem);
+    height: clamp(1.25rem, 1.6vw, 1.55rem);
     filter: invert(86%) brightness(100%);
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
@@ -443,30 +451,29 @@ footer {
     opacity: 0.8;
 }
 
-.legal {
-    position: fixed;
-    bottom: 0.5rem;
-    right: 0.5rem;
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: clamp(0.55rem, 2vw, 0.8rem);
-    text-align: center;
-    align-items: center;
-    line-height: 1.2;
-    gap: 0.6rem;
+.copyright {
     color: #616161;
-    z-index: 15;
+    white-space: nowrap;
+}
+
+.legal {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: clamp(0.6rem, 0.9vw, 0.85rem);
+    text-align: right;
+    line-height: 1.2;
+    color: #616161;
+    white-space: nowrap;
     transition: color 0.3s ease-in-out;
 }
 
 .legal a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.2s ease;
 }
 
-.legal.menu-abierto {
-    color: #ffffff;
-    text-shadow: 0 0 4px #000000;
-    z-index: 45;
+.legal a:hover {
+    color: var(--color-text);
 }
 
 /* POPUP DE COOKIES */
@@ -505,6 +512,10 @@ footer {
 
 /* MEDIA QUERIES PARA DISPOSITIVOS MÓVILES (SMARTPHONE / PANTALLA VERTICAL) */
 @media (max-width: 768px) {
+    :root {
+        --menu-width: min(32vw, 190px);
+    }
+
     header {
         padding-top: 1rem;
     }
@@ -513,10 +524,6 @@ footer {
         width: 70%;
         padding-left: 4%;
         padding-right: 1.5rem;
-    }
-
-    .menu-desplegado {
-        width: min(30vw, 180px);
     }
 
     .info-presentacion {
@@ -531,20 +538,36 @@ footer {
     }
 
     footer {
-        max-width: 65%;
+        height: 3.2rem;
         padding-left: 4%;
-        height: 2.6rem;
+        padding-right: 4%;
+    }
+
+    /* Iconos sociales más grandes en móvil para facilidad táctil y visibilidad */
+    .social-iconos {
+        gap: 0.85rem;
     }
 
     .social-iconos img {
-        width: 1.15rem;
-        height: 1.15rem;
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .copyright {
+        font-size: 0.65rem;
     }
 
     .legal {
-        font-size: 0.65rem;
-        right: 0.35rem;
-        bottom: 0.35rem;
+        font-size: 0.7rem;
+    }
+
+    /* En móvil cuando el menú está abierto, ocultamos el copyright para que los iconos y legal quepan holgados */
+    body.menu-abierto footer .copyright {
+        display: none;
+    }
+
+    body.menu-abierto footer {
+        padding-right: 0.75rem;
     }
 }
 
@@ -618,8 +641,8 @@ footer {
     }
 
     .social-iconos img {
-        width: 1.2rem;
-        height: 1.2rem;
+        width: 1.3rem;
+        height: 1.3rem;
     }
 
     .legal {

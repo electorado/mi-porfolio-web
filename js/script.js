@@ -34,9 +34,7 @@ function abrirMenu() {
         abrirMenuBtn.setAttribute('aria-expanded', 'true');
         abrirMenuBtn.style.visibility = 'hidden';
     }
-    if (legalDiv) {
-        legalDiv.classList.add('menu-abierto');
-    }
+    document.body.classList.add('menu-abierto');
     if (cerrarMenuBtn) {
         cerrarMenuBtn.focus();
     }
@@ -53,9 +51,7 @@ function cerrarMenu(returnFocus = true) {
             abrirMenuBtn.focus();
         }
     }
-    if (legalDiv) {
-        legalDiv.classList.remove('menu-abierto');
-    }
+    document.body.classList.remove('menu-abierto');
 }
 
 // Solo ejecuta el código del menú si los elementos existen
