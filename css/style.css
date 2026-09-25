@@ -126,7 +126,7 @@ button.menu:hover {
 .menu .menu-texto {
     display: block;
     margin-top: 0.15rem;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 /* MENÚ DESPLEGABLE (CARTA DE AJUSTE CON FRANJAS HORIZONTALES DISTORSIONADAS ESTILO RETRO CRT) */
@@ -227,8 +227,8 @@ button.cerrar-menu:hover {
     color: var(--color-accent);
     text-decoration: none;
     font-size: clamp(1.05rem, 3.8cqw, 1.9rem);
-    font-weight: 700;
-    text-shadow: 0 0 4px #ffffff, 0 0 8px #ffffff, 0 1px 2px #ffffff;
+    font-weight: 400;
+    text-shadow: 0 0 3px #ffffff, 0 0 6px #ffffff;
     display: inline-block;
     transition: transform 0.2s ease, color 0.2s ease;
 }
