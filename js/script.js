@@ -30,48 +30,63 @@ function abrirMenu() {
     if (menuLateral) {
         menuLateral.classList.add('activo');
     }
-     if (abrirMenuBtn) {
-        abrirMenuBtn.style.visibility = 'hidden'; 
+    if (abrirMenuBtn) {
+        abrirMenuBtn.setAttribute('aria-expanded', 'true');
+        abrirMenuBtn.style.visibility = 'hidden';
     }
     if (legalDiv) {
         legalDiv.classList.add('menu-abierto');
     }
+    if (cerrarMenuBtn) {
+        cerrarMenuBtn.focus();
+    }
 }
 
-function cerrarMenu() {
+function cerrarMenu(returnFocus = true) {
     if (menuLateral) {
         menuLateral.classList.remove('activo');
     }
     if (abrirMenuBtn) {
-        abrirMenuBtn.style.visibility = 'visible'; 
+        abrirMenuBtn.setAttribute('aria-expanded', 'false');
+        abrirMenuBtn.style.visibility = 'visible';
+        if (returnFocus) {
+            abrirMenuBtn.focus();
+        }
     }
     if (legalDiv) {
         legalDiv.classList.remove('menu-abierto');
     }
 }
 
-// Solo ejecuta el código del menú si los botones existen
+// Solo ejecuta el código del menú si los elementos existen
 if (abrirMenuBtn && cerrarMenuBtn && menuLateral) {
     abrirMenuBtn.addEventListener('click', abrirMenu);
-    cerrarMenuBtn.addEventListener('click', cerrarMenu);
-    
-    menuLinks.forEach(link => {
-        link.addEventListener('click', cerrarMenu);
+
+    cerrarMenuBtn.addEventListener('click', () => {
+        cerrarMenu(true);
+    });
+
+    menuLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            cerrarMenu(false);
+        });
+    });
+
+    // Soporte para teclado: cerrar menú lateral con Escape y devolver el foco
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuLateral.classList.contains('activo')) {
+            cerrarMenu(true);
+        }
+    });
+
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', (event) => {
+        if (
+            menuLateral.classList.contains('activo') &&
+            !menuLateral.contains(event.target) &&
+            !abrirMenuBtn.contains(event.target)
+        ) {
+            cerrarMenu(false);
+        }
     });
 }
-
-const acordeonItems = document.querySelectorAll('.acordeon-item');
-
-acordeonItems.forEach(item => {
-  item.addEventListener('toggle', (event) => {
-    // Si el item se ha abierto...
-    if (item.open) {
-      // ...cierra todos los demás
-      acordeonItems.forEach(otroItem => {
-        if (otroItem !== item) {
-          otroItem.open = false;
-        }
-      });
-    }
-  });
-});
