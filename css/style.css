@@ -265,8 +265,12 @@ main {
 
 /* LANDING PAGE */
 .descripcion {
-    padding-top: clamp(13rem, 28vh, 22rem);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: clamp(8rem, 15vh, 12rem);
+    padding-bottom: clamp(5rem, 10vh, 8rem);
     color: #C5B5B5;
     scroll-margin-top: clamp(8.5rem, 15vw, 13.5rem);
 }
@@ -543,7 +547,8 @@ body.menu-abierto footer {
     }
 
     .descripcion {
-        padding-top: clamp(10rem, 28vh, 14rem);
+        padding-top: clamp(6.5rem, 15vh, 10rem);
+        padding-bottom: clamp(4rem, 8vh, 6rem);
     }
 
     #info, #proyectos, #intereses {
