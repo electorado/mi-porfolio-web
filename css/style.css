@@ -1,7 +1,7 @@
 /* VARIABLES GLOBALES Y RESET */
 :root {
     --header-height: clamp(7.5rem, 16vw, 10rem);
-    --menu-width: min(28vw, 230px);
+    --menu-width: clamp(14.5rem, 20vw, 18rem);
     --color-bg: #171616;
     --color-text: #ebe1e1;
     --color-accent: #0000ae;
@@ -160,94 +160,137 @@ button.menu:hover {
     right: 0;
 }
 
-/* BARRA SUPERIOR DEL MENÚ CON BOTONES FLOTANTES */
+/* BARRA SUPERIOR DEL MENÚ CON BOTONES RETRO VINTAGE (INSPIRADOS EN CARTA DE AJUSTES) */
 .menu-top-bar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 1.25rem 0 1.25rem;
+    padding: 1rem 1rem 0 1rem;
     z-index: 10;
+    gap: 0.5rem;
+    box-sizing: border-box;
 }
 
-/* ICONO FLOTANTE DE LA CASA (HOME) */
-.icono-home {
-    background: transparent;
-    border: none;
-    color: #0000ae;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 0.35rem;
-    text-decoration: none;
-    filter: drop-shadow(0 0 3px #ffffff) drop-shadow(0 0 6px #ffffff);
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.icono-home:hover {
-    transform: scale(1.2);
-    color: #000066;
-}
-
-/* BOTÓN DE CIERRE FLOTANTE (SIN CUADRADO BLANCO) */
+/* BOTONES RETRO OSD: HOME Y CERRAR */
+.icono-home,
 button.cerrar-menu {
-    position: static;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    color: #0000ae;
-    cursor: pointer;
-    padding: 0.35rem;
-    display: flex;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1.5px solid #ffffff;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
+    padding: 0.35rem 0.55rem;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(0 0 3px #ffffff) drop-shadow(0 0 6px #ffffff);
-    transition: transform 0.2s ease, color 0.2s ease;
+    gap: 0.35rem;
+    text-decoration: none;
+    font-family: 'Source Code Pro', monospace;
+    cursor: pointer;
+    border-radius: 0;
+    transition: all 0.15s ease-out;
 }
 
+.icono-home:hover,
 button.cerrar-menu:hover {
-    transform: scale(1.2);
-    background: transparent;
-    color: #000066;
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+}
+
+.icono-home .btn-micro-label,
+button.cerrar-menu .btn-micro-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
 }
 
 .icono-cerrar {
-    width: 1.65rem;
-    height: 1.65rem;
+    width: 0.95rem;
+    height: 0.95rem;
 }
 
+/* PLACA TÉCNICA OSD EN EL CENTRO DE LA CABECERA (ESTILO PHILIPS PM5544) */
+.menu-osd-badge {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #00e5ff;
+    border: 1px solid rgba(0, 229, 255, 0.6);
+    padding: 0.2rem 0.45rem;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    user-select: none;
+}
+
+/* CONTENEDOR DE OPCIONES DEL MENÚ */
 .menu-desplegado .items-menu {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: clamp(4rem, 14vh, 7.5rem);
+    gap: clamp(3.5rem, 12vh, 6.5rem);
     text-align: left;
-    padding-left: clamp(1.2rem, 3vw, 2rem);
-    margin-top: clamp(3rem, 10vh, 6rem);
+    padding: 0 1rem;
+    margin-top: clamp(3rem, 10vh, 5.5rem);
+    box-sizing: border-box;
     z-index: 1;
 }
 
-.menu-desplegado .items-menu a {
-    color: var(--color-accent);
+/* BOTONES DEL MENÚ ESTILO BANNER CARTA DE AJUSTES (INSPIRADOS EN 'USA POST' Y 'NO SIGNAL') */
+.menu-desplegado .items-menu a.menu-banner {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.95);
+    font-family: 'Source Code Pro', monospace;
     text-decoration: none;
-    font-size: clamp(1.05rem, 3.8cqw, 1.9rem);
-    font-weight: 400;
-    text-shadow: 0 0 3px #ffffff, 0 0 6px #ffffff;
-    display: inline-block;
-    transition: transform 0.2s ease, color 0.2s ease;
+    font-size: clamp(0.85rem, 2.4cqw, 1.1rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.65rem 0.85rem;
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.menu-desplegado .items-menu a:hover {
-    color: #000066;
+.menu-desplegado .items-menu a.menu-banner .banner-code {
+    color: #00e5ff;
+    font-size: 0.8em;
+    padding-right: 0.55rem;
+    margin-right: 0.55rem;
+    border-right: 1.5px solid rgba(255, 255, 255, 0.4);
+    flex-shrink: 0;
+}
+
+.menu-desplegado .items-menu a.menu-banner .banner-title {
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* EFECTO HOVER ESTILO MONITOR CRT INVERTIDO */
+.menu-desplegado .items-menu a.menu-banner:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
     transform: translateX(4px);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 1);
 }
 
-.menu-desplegado .items-menu a::before {
-    content: "<";
+.menu-desplegado .items-menu a.menu-banner:hover .banner-code {
+    color: #000000;
+    border-right-color: rgba(0, 0, 0, 0.4);
 }
 
-.menu-desplegado .items-menu a::after {
-    content: ">";
+.menu-desplegado .items-menu a.menu-banner:hover .banner-title {
+    color: #000000;
 }
 
 /* CONTENIDO PRINCIPAL (MAIN) */
@@ -553,7 +596,7 @@ body.menu-abierto footer {
 /* MEDIA QUERIES PARA DISPOSITIVOS MÓVILES (SMARTPHONE / PANTALLA VERTICAL) */
 @media (max-width: 768px) {
     :root {
-        --menu-width: min(32vw, 190px);
+        --menu-width: clamp(13rem, 46vw, 16.5rem);
     }
 
     header {
