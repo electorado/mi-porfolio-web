@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300..900;1,300..900&family=VT323&family=Wix+Madefor+Display:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=6">
+    <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 
 <body>
@@ -47,17 +47,21 @@
             </div>
 
             <div class="items-menu">
-                <a href="#info" class="menu-banner">
-                    <span class="banner-code">01</span>
-                    <span class="banner-title">Info</span>
-                </a>
                 <a href="#proyectos" class="menu-banner">
-                    <span class="banner-code">02</span>
+                    <span class="banner-code">01</span>
                     <span class="banner-title">Proyectos</span>
+                </a>
+                <a href="#info" class="menu-banner">
+                    <span class="banner-code">02</span>
+                    <span class="banner-title">Sobre mí</span>
                 </a>
                 <a href="#intereses" class="menu-banner">
                     <span class="banner-code">03</span>
                     <span class="banner-title">Intereses</span>
+                </a>
+                <a href="#contacto" class="menu-banner">
+                    <span class="banner-code">04</span>
+                    <span class="banner-title">Contacto</span>
                 </a>
             </div>
 
@@ -76,6 +80,110 @@
                 <p>Desarrollador de Aplicaciones Multiplataforma (DAM) con más de 20 años de experiencia previa en gestión operativa en hostelería. 
                     Con foco técnico en desarrollo backend, arquitectura orientada a datos y automatización mediante Java, Python y entornos SQL/NoSQL.<br>
                     <br>Éste es mi portfolio.</p>
+            </div>
+
+            <div id="proyectos" class="contenido">
+                <h2>Proyectos</h2>
+
+                <div class="proyectos-grid">
+                    <article class="proyecto">
+                        <a href="https://github.com/electorado/Smartorder_HORECA"
+                            class="project-header" target="_blank" rel="noopener noreferrer">
+                            <h3>SmartOrder HORECA</h3>
+                            <img src="img/proyecto-smartorder-crt.png" alt="Captura e infografía del sistema SmartOrder HORECA para optimización de compras y pedidos" width="800" height="800" loading="lazy" decoding="async">
+                        </a>
+
+                        <div class="project-tags">
+                            <span class="tech-badge">Python (FastAPI)</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">Android (Kotlin)</span>
+                            <span class="tech-badge">Gemini Vision</span>
+                        </div>
+
+                        <p>Solución multiplataforma orientada al sector hostelero (TFC - DAM). Desarrollada con Python (FastAPI), MongoDB y Android (Kotlin), integra Google Gemini Vision para normalizar e ingestar catálogos de proveedores y automatizar el ciclo completo de pedidos con fricción cero para jefes de cocina.</p>
+
+                        <div class="project-cta-container">
+                            <a href="https://github.com/electorado/Smartorder_HORECA" class="btn-project-cta" target="_blank" rel="noopener noreferrer">
+                                <span>Ver repositorio en GitHub &nearr;</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="proyecto">
+                        <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93"
+                            class="project-header" target="_blank" rel="noopener noreferrer">
+                            <h3>Virtualización de sistemas operativos y servidores</h3>
+                            <img src="img/proyecto-sistemas-crt.png" alt="Captura del proyecto de virtualización de sistemas operativos y servidores" width="800" height="800" loading="lazy" decoding="async">
+                        </a>
+
+                        <div class="project-tags">
+                            <span class="tech-badge">VirtualBox</span>
+                            <span class="tech-badge">Proxmox</span>
+                            <span class="tech-badge">Debian / Ubuntu</span>
+                            <span class="tech-badge">Windows Server</span>
+                        </div>
+
+                        <p>Práctica realizada para el módulo de Sistemas Informáticos, que consiste en crear y
+                            configurar varias máquinas virtuales en VirtualBox: Windows Server, Ubuntu, un arranque
+                            dual de Windows y Ubuntu, además de una virtualización anidada de Debian en Proxmox.</p>
+
+                        <div class="project-cta-container">
+                            <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93" class="btn-project-cta" target="_blank" rel="noopener noreferrer">
+                                <span>Ver presentación técnica &nearr;</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="proyecto">
+                        <a href="https://github.com/electorado/tienda-chocolates-java"
+                            class="project-header" target="_blank" rel="noopener noreferrer">
+                            <h3>Gestión de una tienda de chocolate</h3>
+                            <img src="img/proyecto-java-crt.png" alt="Captura de la aplicación de gestión de tienda de chocolates desarrollada en Java" width="800" height="800" loading="lazy" decoding="async">
+                        </a>
+
+                        <div class="project-tags">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">POO</span>
+                            <span class="tech-badge">Consola / CLI</span>
+                            <span class="tech-badge">Gestión Comercial</span>
+                        </div>
+
+                        <p>Creación de un sistema de gestión de un negocio en consola de Java para el módulo de
+                            Programación, con funciones que permitan la gestión de los clientes, de los productos y las
+                            ventas.</p>
+
+                        <div class="project-cta-container">
+                            <a href="https://github.com/electorado/tienda-chocolates-java" class="btn-project-cta" target="_blank" rel="noopener noreferrer">
+                                <span>Ver repositorio en GitHub &nearr;</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="proyecto">
+                        <a href="https://github.com/electorado/cuestionario-Python-MPO" class="project-header"
+                            target="_blank" rel="noopener noreferrer">
+                            <h3>Generador de cuestionarios interactivo</h3>
+                            <img src="img/proyecto-python-crt.png" alt="Captura del generador interactivo de cuestionarios desarrollado en Python" width="800" height="800" loading="lazy" decoding="async">
+                        </a>
+
+                        <div class="project-tags">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">CLI</span>
+                            <span class="tech-badge">Algoritmia</span>
+                            <span class="tech-badge">Test Automatizado</span>
+                        </div>
+
+                        <p>Desarrollo de una aplicación de consola en Python que permite realizar cuestionarios tipo
+                            test. El usuario podrá responder a una serie de preguntas, la aplicación corrige
+                            automáticamente las respuestas y muestra la puntuación obtenida al finalizar.</p>
+
+                        <div class="project-cta-container">
+                            <a href="https://github.com/electorado/cuestionario-Python-MPO" class="btn-project-cta" target="_blank" rel="noopener noreferrer">
+                                <span>Ver repositorio en GitHub &nearr;</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
 
             <div id="info" class="contenido">
@@ -104,7 +212,7 @@
                         <h3 id="titulo-estudios">Estudios</h3>
                         <ul>
                             <li>
-                                <strong>Técnico superior en diseño de aplicaciones multimedia</strong><br>
+                                <strong>Técnico superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</strong><br>
                                 <small>Prometeo (The PowerFP) (02/2025 - fecha prevista de finalización: 02/2027)</small>
                             </li>
                             <li>
@@ -204,76 +312,90 @@
 
             </div>
 
-            <div id="proyectos" class="contenido">
-                <h2>Proyectos</h2>
+            <div id="intereses" class="contenido">
+                <h2>Me interesa</h2>
+                
+                <div class="intereses-wrapper">
+                    <div class="intereses-grupo">
+                        <h3>Stack &amp; Tecnología</h3>
+                        <div class="intereses-container">
+                            <span class="tag">desarrollo backend</span>
+                            <span class="tag">IA &amp; LLMs</span>
+                            <span class="tag">análisis de datos</span>
+                            <span class="tag">automatización</span>
+                            <span class="tag">arquitectura de datos</span>
+                            <span class="tag">SQL / NoSQL</span>
+                        </div>
+                    </div>
 
-                <div class="proyectos-grid">
-                    <article class="proyecto">
-                        <a href="https://github.com/electorado/Smartorder_HORECA"
-                            class="project-header" target="_blank" rel="noopener noreferrer">
-                            <h3>SmartOrder HORECA</h3>
-                            <img src="img/proyecto-smartorder-crt.png" alt="Captura e infografía del sistema SmartOrder HORECA para optimización de compras y pedidos" width="800" height="800" loading="lazy" decoding="async">
-                        </a>
-
-                        <p>Solución multiplataforma orientada al sector hostelero (TFC - DAM). Desarrollada con Python (FastAPI), MongoDB y Android (Kotlin), integra Google Gemini Vision para normalizar e ingestar catálogos de proveedores y automatizar el ciclo completo de pedidos con fricción cero para jefes de cocina.</p>
-                    </article>
-
-                    <article class="proyecto">
-                        <a href="https://www.canva.com/design/DAGseb4cwnY/Id8_VtaZPxYDZx4jfpqoaw/view?utm_content=DAGseb4cwnY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7a961de93"
-                            class="project-header" target="_blank" rel="noopener noreferrer">
-                            <h3>Virtualización de sistemas operativos y servidores</h3>
-                            <img src="img/proyecto-sistemas-crt.png" alt="Captura del proyecto de virtualización de sistemas operativos y servidores" width="800" height="800" loading="lazy" decoding="async">
-                        </a>
-
-                        <p>Práctica realizada para el módulo de Sistemas Informáticos, que consiste en crear y
-                            configurar varias máquinas virtuales en VirtualBox: Windows Server, Ubuntu, un arranque
-                            dual de Windows y Ubuntu, además de una virtualización anidada de Debian en Proxmox.</p>
-                    </article>
-
-                    <article class="proyecto">
-                        <a href="https://github.com/electorado/tienda-chocolates-java"
-                            class="project-header" target="_blank" rel="noopener noreferrer">
-                            <h3>Gestión de una tienda de chocolate</h3>
-                            <img src="img/proyecto-java-crt.png" alt="Captura de la aplicación de gestión de tienda de chocolates desarrollada en Java" width="800" height="800" loading="lazy" decoding="async">
-                        </a>
-
-                        <p>Creación de un sistema de gestión de un negocio en consola de Java para el módulo de
-                            Programación, con funciones que permitan la gestión de los clientes, de los productos y las
-                            ventas.</p>
-                    </article>
-
-                    <article class="proyecto">
-                        <a href="https://github.com/electorado/cuestionario-Python-MPO" class="project-header"
-                            target="_blank" rel="noopener noreferrer">
-                            <h3>Generador de cuestionarios interactivo</h3>
-                            <img src="img/proyecto-python-crt.png" alt="Captura del generador interactivo de cuestionarios desarrollado en Python" width="800" height="800" loading="lazy" decoding="async">
-                        </a>
-                        <p>Desarrollo de una aplicación de consola en Python que permite realizar cuestionarios tipo
-                            test. El usuario podrá responder a una serie de preguntas, la aplicación corrige
-                            automáticamente las respuestas y muestra la puntuación obtenida al finalizar.</p>
-                    </article>
+                    <div class="intereses-grupo">
+                        <h3>Personal &amp; Creatividad</h3>
+                        <div class="intereses-container">
+                            <span class="tag">cocina saludable</span>
+                            <span class="tag">cocina sostenible</span>
+                            <span class="tag">percusión</span>
+                            <span class="tag">guitarra</span>
+                            <span class="tag">capoeira angola</span>
+                            <span class="tag">LEGOs</span>
+                            <span class="tag">música de los 70</span>
+                            <span class="tag">música de los 90</span>
+                            <span class="tag">yoga</span>
+                            <span class="tag">meditación</span>
+                            <span class="tag">salsa brava</span>
+                            <span class="tag">comedia negra</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div id="intereses" class="contenido">
-                <h2>Me interesa</h2>
-                <div class="intereses-container">
-                    <span class="tag">percusión</span>
-                    <span class="tag">guitarra</span>
-                    <span class="tag">cocina saludable</span>
-                    <span class="tag">comedia negra</span>
-                    <span class="tag">desarrollo backend</span>
-                    <span class="tag">IA</span>
-                    <span class="tag">análisis de datos</span>
-                    <span class="tag">cocina sostenible</span>
-                    <span class="tag">yoga</span>
-                    <span class="tag">salsa brava</span>
-                    <span class="tag">capoeira angola</span>
-                    <span class="tag">LEGOs</span>
-                    <span class="tag">Música</span>
-                    <span class="tag">música de los 70</span>
-                    <span class="tag">música de los 90</span>
-                    <span class="tag">meditación</span>
+            <div id="contacto" class="contenido">
+                <h2>Contacto</h2>
+
+                <div class="contacto-wrapper">
+                    <div class="contacto-info-box">
+                        <p class="contacto-intro">¿Tienes una propuesta técnica, vacante o colaboración en desarrollo backend o automatización? Escríbeme directamente por el formulario o a través de mis canales:</p>
+
+                        <div class="contacto-canales-directos">
+                            <a href="mailto:pamoncayo@gmail.com" class="contacto-canal-badge">
+                                <span class="canal-label">EMAIL DIRECTO</span>
+                                <span class="canal-val">pamoncayo@gmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/pamoncayo/" target="_blank" rel="noopener noreferrer" class="contacto-canal-badge">
+                                <span class="canal-label">LINKEDIN</span>
+                                <span class="canal-val">in/pamoncayo &nearr;</span>
+                            </a>
+                            <a href="https://github.com/electorado" target="_blank" rel="noopener noreferrer" class="contacto-canal-badge">
+                                <span class="canal-label">GITHUB</span>
+                                <span class="canal-val">@electorado &nearr;</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form class="contacto-form" id="contactoForm" novalidate>
+                        <!-- Campo trampa invisible anti-spam (honeypot) -->
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                        
+                        <div class="form-group">
+                            <label for="formNombre">Nombre o empresa</label>
+                            <input type="text" id="formNombre" name="name" required placeholder="Tu nombre o empresa" class="input-retro" autocomplete="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formEmail">Email de contacto</label>
+                            <input type="email" id="formEmail" name="email" required placeholder="tu.correo@ejemplo.com" class="input-retro" autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formMensaje">Mensaje</label>
+                            <textarea id="formMensaje" name="message" rows="5" required placeholder="Cuéntame sobre el puesto, proyecto o consulta..." class="input-retro"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit-retro" id="btnSubmitForm">
+                            <span class="btn-submit-text">ENVIAR MENSAJE &nearr;</span>
+                        </button>
+
+                        <div id="contactoEstado" class="contacto-estado" aria-live="polite" role="status"></div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -290,7 +412,7 @@
             <a href="mailto:pamoncayo@gmail.com" aria-label="Enviar correo electrónico a Pablo Moncayo">
                 <img src="icons/square-envelope-solid.svg" alt="" width="26" height="26" loading="lazy" decoding="async" aria-hidden="true">
             </a>
-            <p class="copyright">© 2025 Pablo A.<br> Moncayo Vega</p>
+            <p class="copyright">© <span id="currentYear">2026</span> Pablo A.<br> Moncayo Vega</p>
         </div>
 
         <div class="legal">
@@ -298,14 +420,7 @@
         </div>
     </footer>
 
-    <div class="cookie-popup" id="cookie-popup" role="region" aria-label="Aviso sobre cookies">
-        <h3>Bienvenido a mi sitio web</h3>
-        <p>Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas el uso de cookies <a
-                href="privacidad.html" target="_blank" rel="noopener noreferrer">Saber más</a></p>
-        <button id="accept-cookies-btn" type="button">Aceptar</button>
-    </div>
-
-    <script src="js/script.js?v=6"></script>
+    <script src="js/script.js?v=7"></script>
 
 </body>
 
