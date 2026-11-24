@@ -647,7 +647,7 @@ body.menu-abierto footer {
 /* MEDIA QUERIES PARA DISPOSITIVOS MÓVILES (SMARTPHONE / PANTALLA VERTICAL) */
 @media (max-width: 768px) {
     :root {
-        --menu-width: clamp(9.5rem, 33vw, 11.8rem);
+        --menu-width: clamp(5.6rem, 24vw, 6.6rem);
     }
 
     header {
@@ -655,14 +655,25 @@ body.menu-abierto footer {
     }
 
     main {
-        width: 70%;
+        width: 92%;
         padding-left: 4%;
-        padding-right: 1.5rem;
+        padding-right: 4%;
+        transition: width 0.3s ease, padding-right 0.3s ease;
+    }
+
+    body.menu-abierto main {
+        width: calc(100% - var(--menu-width));
+        padding-right: 1.25rem;
     }
 
     .descripcion {
         padding-top: clamp(6.5rem, 15vh, 10rem);
         padding-bottom: clamp(4rem, 8vh, 6rem);
+    }
+
+    .descripcion p,
+    #info p {
+        text-align: left;
     }
 
     #info, #proyectos, #intereses {
@@ -683,6 +694,72 @@ body.menu-abierto footer {
 
     .proyecto {
         flex-basis: 100%;
+    }
+
+    /* MENÚ LATERAL ULTRA-FINO EN MÓVIL */
+    .menu-desplegado {
+        width: var(--menu-width);
+    }
+
+    .menu-top-bar {
+        padding: 0.65rem 0.5rem 0;
+    }
+
+    .icono-home,
+    button.cerrar-menu {
+        width: 1.85rem;
+        height: 1.85rem;
+    }
+
+    .menu-desplegado .items-menu {
+        padding: 0.4rem 0.45rem;
+    }
+
+    /* BOTONES APILADOS ESTILO INSIGNIA TELETEXTO CRT */
+    .menu-desplegado .items-menu a.menu-banner {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.45rem 0.2rem;
+        font-size: clamp(0.95rem, 3.2vw, 1.15rem);
+        box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.95);
+    }
+
+    .menu-desplegado .items-menu a.menu-banner .banner-code {
+        padding-right: 0;
+        margin-right: 0;
+        margin-bottom: 0.2rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+        padding-bottom: 0.15rem;
+        width: 60%;
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+    .menu-desplegado .items-menu a.menu-banner .banner-title {
+        white-space: normal;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .menu-desplegado .items-menu a.menu-banner:hover .banner-code {
+        border-bottom-color: rgba(23, 22, 22, 0.4);
+    }
+
+    .menu-bottom-osd {
+        padding-bottom: clamp(0.6rem, 2vh, 1.2rem);
+    }
+
+    .osd-static-box {
+        width: 82%;
+        height: 1.55rem;
+    }
+
+    .osd-static-box .osd-text {
+        font-size: 0.85rem;
+        padding: 0.1rem 0.25rem;
+        letter-spacing: 0.08em;
     }
 
     footer {
