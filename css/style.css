@@ -45,7 +45,8 @@ html {
 body {
     background-color: var(--color-bg);
     color: var(--color-text);
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 400;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -244,7 +245,7 @@ button.cerrar-menu:hover {
     z-index: 1;
 }
 
-/* BOTONES DEL MENÚ ESTILO BANNER CARTA DE AJUSTES (INSPIRADOS EN 'USA POST' Y 'NO SIGNAL' CON FUENTE RETRO VT323) */
+/* BOTONES DEL MENÚ ESTILO BANNER MINIMALISTA (EN MODO DEFECTO CON FUENTE WIX MADEFOR DISPLAY) */
 .menu-desplegado .items-menu a.menu-banner {
     display: flex;
     align-items: center;
@@ -252,11 +253,11 @@ button.cerrar-menu:hover {
     color: #ffffff;
     border: 1.5px solid #ffffff;
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.95);
-    font-family: 'VT323', monospace;
+    font-family: 'Wix Madefor Display', sans-serif;
     text-decoration: none;
-    font-size: clamp(1.2rem, 3.2cqw, 1.55rem);
-    font-weight: 400;
-    letter-spacing: 0.08em;
+    font-size: clamp(1.05rem, 2.6cqw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
     line-height: 1.1;
     text-transform: uppercase;
     padding: 0.5rem 0.75rem;
@@ -268,6 +269,8 @@ button.cerrar-menu:hover {
 
 .menu-desplegado .items-menu a.menu-banner .banner-code {
     color: #00e5ff;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 800;
     font-size: 1.05em;
     padding-right: 0.5rem;
     margin-right: 0.5rem;
@@ -278,6 +281,8 @@ button.cerrar-menu:hover {
 
 .menu-desplegado .items-menu a.menu-banner .banner-title {
     color: #ffffff;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -329,6 +334,29 @@ button.cerrar-menu:hover {
     box-sizing: border-box;
 }
 
+/* BOTÓN OSD INTERACTIVO PARA VIAJE EN EL TIEMPO */
+button.osd-mode-toggle {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button.osd-mode-toggle:hover {
+    transform: scale(1.06);
+    border-color: #00e5ff;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6), 2px 2px 0px rgba(0, 0, 0, 1);
+}
+
+button.osd-mode-toggle:hover .osd-text {
+    border-color: #00e5ff;
+    color: #00e5ff;
+}
+
 .osd-static-box .osd-text {
     background-color: var(--color-bg);
     color: #ffffff;
@@ -342,6 +370,7 @@ button.cerrar-menu:hover {
     user-select: none;
     white-space: nowrap;
     line-height: 1;
+    transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 /* CONTENIDO PRINCIPAL (MAIN) */
@@ -532,8 +561,8 @@ a.project-header img {
 .tech-badge {
     background-color: #252525;
     color: #00e5ff;
-    font-family: 'Source Code Pro', monospace;
-    font-size: clamp(0.68rem, 1.4cqw, 0.78rem);
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: clamp(0.7rem, 1.4cqw, 0.8rem);
     font-weight: 600;
     padding: 0.18rem 0.5rem;
     border: 1px solid rgba(0, 229, 255, 0.35);
@@ -555,9 +584,10 @@ a.project-header img {
     color: #ffffff;
     border: 1.5px solid #ffffff;
     box-shadow: 2.5px 2.5px 0px rgba(0, 0, 0, 0.9);
-    font-family: 'VT323', monospace;
-    font-size: 1.15rem;
-    letter-spacing: 0.08em;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     text-decoration: none;
     padding: 0.35rem 0.8rem;
@@ -663,7 +693,7 @@ a.project-header img {
     padding: 0.65rem 0.85rem;
     text-decoration: none;
     color: #ffffff;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Wix Madefor Display', sans-serif;
     font-size: 0.85rem;
     border-radius: 4px;
     transition: all 0.15s ease;
@@ -677,9 +707,10 @@ a.project-header img {
 
 .contacto-canal-badge .canal-label {
     color: #00e5ff;
-    font-family: 'VT323', monospace;
-    font-size: 1.15rem;
-    letter-spacing: 0.08em;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
 }
 
 .contacto-canal-badge .canal-val {
@@ -705,9 +736,10 @@ a.project-header img {
 }
 
 .form-group label {
-    font-family: 'VT323', monospace;
-    font-size: 1.15rem;
-    letter-spacing: 0.08em;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
     color: #e0dcdc;
     text-transform: uppercase;
 }
@@ -718,7 +750,7 @@ a.project-header img {
     border: 1.5px solid #505050;
     border-radius: 0;
     padding: 0.65rem 0.8rem;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Wix Madefor Display', sans-serif;
     font-size: 0.9rem;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     width: 100%;
@@ -741,9 +773,10 @@ a.project-header img {
     color: #ffffff;
     border: 1.5px solid #ffffff;
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.95);
-    font-family: 'VT323', monospace;
-    font-size: 1.3rem;
-    letter-spacing: 0.1em;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     padding: 0.6rem 1.4rem;
     cursor: pointer;
@@ -764,9 +797,9 @@ a.project-header img {
 }
 
 .contacto-estado {
-    font-family: 'VT323', monospace;
-    font-size: 1.15rem;
-    letter-spacing: 0.05em;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
     min-height: 1.4rem;
     line-height: 1.3;
 }
@@ -865,6 +898,284 @@ body.menu-abierto footer {
     color: var(--color-text);
 }
 
+/* ==========================================================================
+   SISTEMA DE VIAJE EN EL TIEMPO: MODO CONTEMPORÁNEO (UHD) / RETRO CRT (PAL-625)
+   ========================================================================== */
+
+/* VISIBILIDAD DE CONTENIDO SEGÚN MODO */
+body:not(.modo-crt) .descripcion-crt {
+    display: none !important;
+}
+
+body:not(.modo-crt) .descripcion-standard {
+    display: block;
+}
+
+body.modo-crt .descripcion-standard {
+    display: none !important;
+}
+
+body.modo-crt .descripcion-crt {
+    display: block;
+}
+
+/* MANIFIESTO TERMINAL RETRO CRT (SYS_MANIFEST.LOG) */
+.crt-manifest-box {
+    background-color: #171717;
+    border: 1.5px solid #383838;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.85);
+    max-width: 900px;
+    margin-top: 1.5rem;
+}
+
+.manifest-titlebar {
+    background-color: #202020;
+    padding: 0.45rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #383838;
+    font-family: 'VT323', monospace;
+    font-size: 1.25rem;
+    letter-spacing: 0.08em;
+}
+
+.titlebar-file {
+    color: #00e676;
+}
+
+.titlebar-version {
+    color: #2979ff;
+    font-size: 1rem;
+}
+
+.manifest-content {
+    padding: clamp(1.2rem, 3vw, 1.8rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.manifest-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+    line-height: 1.55;
+}
+
+.row-tag {
+    font-family: 'VT323', monospace;
+    font-size: 1.35rem;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    width: 140px;
+}
+
+.tag-green { color: #00e676; }
+.tag-blue  { color: #2979ff; }
+.tag-red   { color: #ff3333; }
+
+.row-text {
+    color: #ffffff;
+}
+
+.row-text strong {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 0.1rem 0.35rem;
+    border-radius: 2px;
+}
+
+.manifest-status-row {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #383838;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.25rem;
+    color: #00e676;
+    letter-spacing: 0.06em;
+}
+
+.cursor-blink {
+    width: 10px;
+    height: 18px;
+    background-color: #00e676;
+    display: inline-block;
+    animation: blinkCursor 1s infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- OVERRIDES DEL MODO RETRO CRT / TELETEXTO (body.modo-crt) --- */
+body.modo-crt {
+    font-family: 'Source Code Pro', monospace;
+}
+
+/* Efecto Scanlines analógicas de tubo CRT */
+body.modo-crt::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.18),
+        rgba(0, 0, 0, 0.18) 1.5px,
+        transparent 1.5px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.75;
+}
+
+/* En modo CRT, el botón del menú se convierte en UHD 4K con tipografía Wix */
+body.modo-crt .osd-mode-toggle .osd-text {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 900;
+    color: #00e5ff;
+    border-color: #00e5ff;
+    letter-spacing: 0.08em;
+    font-size: clamp(0.82rem, 2.2cqw, 0.98rem);
+}
+
+/* Títulos y encabezados en modo CRT con VT323 */
+body.modo-crt h1 {
+    font-family: 'VT323', monospace;
+    font-size: clamp(3rem, 11cqw, 8rem);
+    letter-spacing: 0.04em;
+    line-height: 0.85;
+    text-transform: uppercase;
+}
+
+body.modo-crt .nombre .nombre-gris {
+    color: #828282;
+}
+
+body.modo-crt h2 {
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.04em;
+    font-size: clamp(2rem, 6cqw, 5.5rem);
+}
+
+body.modo-crt h3 {
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.05em;
+}
+
+body.modo-crt .menu-desplegado .items-menu a.menu-banner {
+    font-family: 'VT323', monospace;
+    font-size: clamp(1.2rem, 3.2cqw, 1.55rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+}
+
+body.modo-crt .menu-desplegado .items-menu a.menu-banner .banner-code {
+    font-family: 'VT323', monospace;
+}
+
+body.modo-crt .menu-desplegado .items-menu a.menu-banner .banner-title {
+    font-family: 'VT323', monospace;
+}
+
+body.modo-crt .btn-project-cta {
+    font-family: 'VT323', monospace;
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+}
+
+body.modo-crt .tech-badge {
+    font-family: 'Source Code Pro', monospace;
+    color: #00e676;
+    border-color: rgba(0, 230, 118, 0.4);
+}
+
+body.modo-crt .intereses-grupo h3 {
+    font-family: 'VT323', monospace;
+    font-size: 1.45rem;
+    color: #2979ff;
+    letter-spacing: 0.06em;
+}
+
+body.modo-crt .info-card h3 {
+    font-family: 'VT323', monospace;
+    font-size: 1.45rem;
+    color: #00e676;
+    letter-spacing: 0.05em;
+}
+
+body.modo-crt .contacto-item h3 {
+    font-family: 'VT323', monospace;
+    font-size: 1.35rem;
+    color: #00e676;
+    letter-spacing: 0.05em;
+}
+
+body.modo-crt .contacto-form-col h3 {
+    font-family: 'VT323', monospace;
+    font-size: 1.45rem;
+    color: #2979ff;
+    letter-spacing: 0.05em;
+}
+
+body.modo-crt .contacto-canal-badge {
+    font-family: 'Source Code Pro', monospace;
+}
+
+body.modo-crt .contacto-canal-badge .canal-label {
+    font-family: 'VT323', monospace;
+    font-size: 1.15rem;
+}
+
+body.modo-crt .form-group label {
+    font-family: 'VT323', monospace;
+    font-size: 1.15rem;
+}
+
+body.modo-crt .input-retro {
+    font-family: 'Source Code Pro', monospace;
+}
+
+body.modo-crt .btn-submit-retro {
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+}
+
+body.modo-crt .contacto-estado {
+    font-family: 'VT323', monospace;
+    font-size: 1.15rem;
+}
+
+/* Transición Flash / Degauss al cambiar de modo */
+@keyframes crtSwitchFlash {
+    0% {
+        filter: brightness(2.6) contrast(2) saturate(0.2);
+        transform: scaleY(0.98);
+    }
+    50% {
+        filter: brightness(0.6) contrast(2.2) hue-rotate(90deg);
+        transform: scaleY(1.01);
+    }
+    100% {
+        filter: none;
+        transform: none;
+    }
+}
+
+body.crt-switching {
+    animation: crtSwitchFlash 0.3s ease-out;
+}
+
 /* MEDIA QUERIES PARA DISPOSITIVOS MÓVILES (SMARTPHONE / PANTALLA VERTICAL) */
 @media (max-width: 768px) {
     :root {
@@ -943,7 +1254,7 @@ body.menu-abierto footer {
         justify-content: center;
         align-items: center;
         padding: 0.45rem 0.2rem;
-        font-size: clamp(0.95rem, 3.2vw, 1.15rem);
+        font-size: clamp(0.85rem, 2.7vw, 1.02rem);
         box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.95);
     }
 
@@ -1011,6 +1322,26 @@ body.menu-abierto footer {
     /* En móvil cuando el menú está abierto, ocultamos el copyright para que los iconos y legal quepan holgados */
     body.menu-abierto footer .copyright {
         display: none;
+    }
+
+    /* Ajustes modo CRT y manifiesto en móviles */
+    .manifest-row {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .row-tag {
+        width: auto;
+    }
+
+    body.modo-crt .menu-desplegado .items-menu a.menu-banner {
+        font-family: 'VT323', monospace;
+        font-size: clamp(1rem, 3.4vw, 1.25rem);
+    }
+
+    body.modo-crt .osd-mode-toggle .osd-text {
+        font-size: 0.76rem;
+        letter-spacing: 0.05em;
     }
 
     body.menu-abierto footer {

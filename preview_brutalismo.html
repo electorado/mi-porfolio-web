@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boceto: Brutalismo CRT con RGB Estricto | Pablo Moncayo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&family=VT323&family=Wix+Madefor+Display:wght@900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-crt: #121212;
+            --crt-red: #ff3333;
+            --crt-green: #00e676;
+            --crt-blue: #2979ff;
+            --text-white: #ffffff;
+            --text-gray: #828282;
+            --border-dim: #383838;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-crt);
+            color: var(--text-white);
+            font-family: 'Source Code Pro', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+            /* Efecto sutil de scanlines CRT */
+            background-image: linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(0, 0, 0, 0.4) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 3px, 6px 100%;
+        }
+
+        /* SELECTOR FLOTANTE PARA PROBAR TIPOGRAFÍAS DE NOMBRE */
+        .controls-toolbar {
+            background: #1e1e1e;
+            border-bottom: 2px solid #333333;
+            padding: 0.6rem 4%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: #aaaaaa;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .controls-toolbar .btn-toggle {
+            background: #121212;
+            color: var(--crt-green);
+            border: 1px solid var(--crt-green);
+            padding: 0.35rem 0.85rem;
+            font-family: 'VT323', monospace;
+            font-size: 1.15rem;
+            cursor: pointer;
+            letter-spacing: 0.05em;
+            transition: all 0.15s ease;
+        }
+
+        .controls-toolbar .btn-toggle:hover {
+            background: var(--crt-green);
+            color: #121212;
+        }
+
+        /* BARRA SUPERIOR OSD (TELEMETRÍA RGB) */
+        .crt-osd-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 4%;
+            border-bottom: 1px solid var(--border-dim);
+            font-family: 'VT323', monospace;
+            font-size: clamp(0.95rem, 2vw, 1.25rem);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .osd-live-tag {
+            background-color: var(--crt-red);
+            color: #ffffff;
+            padding: 0.15rem 0.55rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .osd-live-tag::before {
+            content: "●";
+            animation: blink 1.2s infinite;
+        }
+
+        .osd-channel-meta {
+            color: var(--text-gray);
+            margin-left: 0.75rem;
+        }
+
+        .osd-channel-meta strong {
+            color: var(--crt-blue);
+        }
+
+        .osd-status-right {
+            color: var(--crt-green);
+        }
+
+        /* CONTENEDOR HERO LANDING */
+        .crt-hero-container {
+            width: 100%;
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: clamp(2rem, 5vh, 4rem) 4%;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .crt-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .crt-name-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NOMBRE: BLANCO PARA NOMBRE, GRIS PARA APELLIDOS */
+        .crt-name-title {
+            line-height: 0.88;
+            letter-spacing: -0.03em;
+            text-transform: lowercase;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
+            transition: font-family 0.2s ease;
+        }
+
+        /* Modo 1 (Por defecto): Wix Madefor Display (La tipografía original con peso 900) */
+        .crt-name-title.font-wix {
+            font-family: 'Wix Madefor Display', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.8rem, 8vw, 6rem);
+            letter-spacing: -0.06em;
+            line-height: 0.82;
+        }
+
+        /* Modo 2: VT323 (Brutalista pixelado) */
+        .crt-name-title.font-vt323 {
+            font-family: 'VT323', monospace;
+            font-size: clamp(3.2rem, 9vw, 6.8rem);
+            line-height: 0.88;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .name-white {
+            color: var(--text-white);
+            display: block;
+        }
+
+        .surname-gray {
+            color: var(--text-gray);
+            display: block;
+        }
+
+        /* SUBTÍTULOS CON USO EXCLUSIVO DE RGB */
+        .crt-subtitle-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background-color: #171717;
+            border: 1.5px solid var(--crt-blue);
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.9);
+            color: var(--crt-blue);
+            font-family: 'VT323', monospace;
+            font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+            letter-spacing: 0.08em;
+            padding: 0.35rem 0.85rem;
+            margin-top: 1.25rem;
+            width: fit-content;
+            text-transform: uppercase;
+        }
+
+        .crt-subtitle-badge .sub-dot {
+            color: var(--crt-green);
+        }
+
+        /* BOTÓN DE MENÚ CON CARTA DE AJUSTE INTEGRADA */
+        .crt-menu-card {
+            background-color: #181818;
+            border: 2px solid #ffffff;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+            text-decoration: none;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            flex-shrink: 0;
+        }
+
+        .crt-menu-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 1);
+            background-color: #242424;
+            border-color: var(--crt-green);
+        }
+
+        .crt-mini-testcard {
+            width: clamp(4.5rem, 9vw, 6.5rem);
+            height: clamp(2.2rem, 4.5vw, 3.2rem);
+            display: flex;
+            position: relative;
+            border: 1px solid #000000;
+        }
+
+        .color-col {
+            flex: 1;
+            height: 100%;
+        }
+
+        .c-white { background: #ffffff; }
+        .c-yellow { background: #ffff00; }
+        .c-cyan { background: #00ffff; }
+        .c-green { background: #00ff00; }
+        .c-magenta { background: #ff00ff; }
+        .c-red { background: #ff0000; }
+        .c-blue { background: #0000ff; }
+
+        .mini-badge-pal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #121212;
+            color: #ffffff;
+            font-family: 'VT323', monospace;
+            font-size: 0.85rem;
+            padding: 0.05rem 0.3rem;
+            border: 1px solid #ffffff;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+
+        .crt-menu-label {
+            font-family: 'VT323', monospace;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            letter-spacing: 0.1em;
+        }
+
+        /* MANIFIESTO TERMINAL: SUBTÍTULOS EN RGB Y TEXTOS EN BLANCO */
+        .crt-manifest-box {
+            margin-top: clamp(2rem, 4vh, 3.2rem);
+            background-color: #171717;
+            border: 1.5px solid var(--border-dim);
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.7);
+            max-width: 900px;
+        }
+
+        .manifest-titlebar {
+            background-color: #202020;
+            padding: 0.45rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1.5px solid var(--border-dim);
+            font-family: 'VT323', monospace;
+            font-size: 1.25rem;
+            letter-spacing: 0.08em;
+        }
+
+        .titlebar-file {
+            color: var(--crt-green);
+        }
+
+        .titlebar-version {
+            color: var(--crt-blue);
+            font-size: 1rem;
+        }
+
+        .manifest-content {
+            padding: clamp(1.2rem, 3vw, 1.8rem);
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .manifest-row {
+            display: flex;
+            align-items: baseline;
+            gap: 1.25rem;
+            font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+            line-height: 1.55;
+        }
+
+        /* ETIQUETAS RGB */
+        .row-tag {
+            font-family: 'VT323', monospace;
+            font-size: 1.35rem;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+            width: 140px;
+        }
+
+        .tag-green { color: var(--crt-green); }
+        .tag-blue  { color: var(--crt-blue); }
+        .tag-red   { color: var(--crt-red); }
+
+        /* TEXTO PARA LEER: 100% BLANCO */
+        .row-text {
+            color: var(--text-white);
+        }
+
+        .row-text strong {
+            color: var(--text-white);
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 0.1rem 0.35rem;
+            border-radius: 2px;
+        }
+
+        .manifest-status-row {
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border-dim);
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-family: 'VT323', monospace;
+            font-size: 1.25rem;
+            color: var(--crt-green);
+            letter-spacing: 0.06em;
+        }
+
+        .cursor-blink {
+            width: 10px;
+            height: 18px;
+            background-color: var(--crt-green);
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        /* PIE TELEMETRÍA INFERIOR (RGB) */
+        .crt-osd-bottom {
+            margin-top: auto;
+            border-top: 1px solid var(--border-dim);
+            padding: 0.75rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'VT323', monospace;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            letter-spacing: 0.08em;
+            color: var(--text-gray);
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .osd-nav-item {
+            color: var(--text-white);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .osd-nav-item.c-green:hover { color: var(--crt-green); }
+        .osd-nav-item.c-blue:hover { color: var(--crt-blue); }
+        .osd-nav-item.c-red:hover { color: var(--crt-red); }
+
+        .osd-nav-item.active {
+            color: var(--crt-blue);
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .manifest-row {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            .row-tag {
+                width: 100%;
+            }
+            .osd-channel-meta {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BOTONERA DE PRUEBA EN VIVO: CAMBIAR FUENTE DEL NOMBRE -->
+    <div class="controls-toolbar">
+        <div>
+            <span>PROBADOR DE FUENTE EN EL NOMBRE:</span>
+        </div>
+        <div>
+            <button type="button" class="btn-toggle" id="btnToggleFont" onclick="toggleNameFont()">
+                CAMBIAR FUENTE DEL NOMBRE: [ Wix Madefor (Original) ]
+            </button>
+        </div>
+    </div>
+
+    <!-- OSD SUPERIOR: TRANSMISIÓN TV (RGB) -->
+    <header class="crt-osd-top">
+        <div>
+            <span class="osd-live-tag">LIVE</span>
+            <span class="osd-channel-meta">CANAL // <strong>RGB-625</strong> LINES 50Hz</span>
+        </div>
+        <div class="osd-status-right">
+            SEÑAL: OK // MODO: CRT BRUTALIST
+        </div>
+    </header>
+
+    <!-- ZONA CENTRAL / HERO -->
+    <main class="crt-hero-container">
+        <div class="crt-header-row">
+            <div class="crt-name-block">
+                <!-- Nombre con blanco para nombre y gris para apellidos -->
+                <h1 class="crt-name-title font-wix" id="nameTitle">
+                    <span class="name-white">pablo andrés</span>
+                    <span class="surname-gray">moncayo vega</span>
+                </h1>
+                
+                <!-- Subtítulo en Azul CRT -->
+                <div class="crt-subtitle-badge">
+                    <span class="sub-dot">▶</span> DEV // BACKEND &amp; ARQUITECTURA DE DATOS
+                </div>
+            </div>
+
+            <!-- Botón de Menú con Carta de Ajuste integrada -->
+            <a href="index.html" class="crt-menu-card" title="Volver a la versión actual">
+                <div class="crt-mini-testcard">
+                    <span class="color-col c-white"></span>
+                    <span class="color-col c-yellow"></span>
+                    <span class="color-col c-cyan"></span>
+                    <span class="color-col c-green"></span>
+                    <span class="color-col c-magenta"></span>
+                    <span class="color-col c-red"></span>
+                    <span class="color-col c-blue"></span>
+                    <span class="mini-badge-pal">PAL-625</span>
+                </div>
+                <span class="crt-menu-label">MENÚ</span>
+            </a>
+        </div>
+
+        <!-- MANIFIESTO TERMINAL: SUBTÍTULOS EN RGB (VERDE, AZUL, ROJO) Y TEXTO PARA LEER EN BLANCO -->
+        <section class="crt-manifest-box">
+            <div class="manifest-titlebar">
+                <span class="titlebar-file">&gt; SYS_MANIFEST.LOG // ABOUT_PABLO.TXT</span>
+                <span class="titlebar-version">[RGB_CHANNELS_OK]</span>
+            </div>
+            <div class="manifest-content">
+                <div class="manifest-row">
+                    <span class="row-tag tag-green">&gt; PERFIL:</span>
+                    <span class="row-text">Desarrollador de Aplicaciones Multiplataforma (DAM).</span>
+                </div>
+                <div class="manifest-row">
+                    <span class="row-tag tag-blue">&gt; BACKGROUND:</span>
+                    <span class="row-text">+20 años de liderazgo operativo en hostelería de alta exigencia.</span>
+                </div>
+                <div class="manifest-row">
+                    <span class="row-tag tag-green">&gt; ENFOQUE:</span>
+                    <span class="row-text">Desarrollo backend robusto, arquitectura orientada a datos y automatización.</span>
+                </div>
+                <div class="manifest-row">
+                    <span class="row-tag tag-red">&gt; STACK CORE:</span>
+                    <span class="row-text"><strong>Java, Python (FastAPI), Android (Kotlin), MongoDB, SQL/NoSQL.</strong></span>
+                </div>
+                <div class="manifest-row">
+                    <span class="row-tag tag-green">&gt; ESTADO:</span>
+                    <span class="row-text">Disponible para nuevos desafíos técnicos. Éste es mi portfolio.</span>
+                </div>
+
+                <div class="manifest-status-row">
+                    <span class="cursor-blink"></span>
+                    <span>SISTEMA EN LÍNEA // SEÑAL LISTA PARA EXPLORAR PROYECTOS</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- OSD INFERIOR: ACCESOS Y COPYRIGHT TELETEXTO -->
+    <footer class="crt-osd-bottom">
+        <div>
+            <a href="index.html#proyectos" class="osd-nav-item active c-blue">01. PROYECTOS [4]</a> &nbsp;&nbsp;
+            <a href="index.html#info" class="osd-nav-item c-green">02. SOBRE MÍ</a> &nbsp;&nbsp;
+            <a href="index.html#intereses" class="osd-nav-item c-red">03. INTERESES</a> &nbsp;&nbsp;
+            <a href="index.html#contacto" class="osd-nav-item c-green">04. CONTACTO</a>
+        </div>
+        <div>
+            © 2026 PABLO MONCAYO // VALENCIA, ES
+        </div>
+    </footer>
+
+    <script>
+        let currentMode = 'wix';
+        function toggleNameFont() {
+            const title = document.getElementById('nameTitle');
+            const btn = document.getElementById('btnToggleFont');
+            if (currentMode === 'wix') {
+                title.className = 'crt-name-title font-vt323';
+                btn.textContent = 'CAMBIAR FUENTE DEL NOMBRE: [ VT323 (Brutalista Pixel) ]';
+                currentMode = 'vt323';
+            } else {
+                title.className = 'crt-name-title font-wix';
+                btn.textContent = 'CAMBIAR FUENTE DEL NOMBRE: [ Wix Madefor (Original) ]';
+                currentMode = 'wix';
+            }
+        }
+    </script>
+
+</body>
+</html>

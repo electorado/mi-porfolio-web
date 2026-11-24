@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300..900;1,300..900&family=VT323&family=Wix+Madefor+Display:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 
 <body>
@@ -65,10 +65,10 @@
                 </a>
             </div>
 
-            <div class="menu-bottom-osd" aria-hidden="true">
-                <div class="osd-static-box">
-                    <span class="osd-text">PAL - 625</span>
-                </div>
+            <div class="menu-bottom-osd">
+                <button type="button" class="osd-static-box osd-mode-toggle" id="modeToggleBtn" aria-label="Sintonizar modo CRT analógico PAL-625 (viaje en el tiempo)" title="Viajar al modo CRT analógico (PAL-625)">
+                    <span class="osd-text" id="modeToggleText">PAL - 625</span>
+                </button>
             </div>
         </nav>
 
@@ -77,9 +77,47 @@
     <main>
         <div class="main-scroll-content">
             <div id="descripcion" class="descripcion">
-                <p>Desarrollador de Aplicaciones Multiplataforma (DAM) con más de 20 años de experiencia previa en gestión operativa en hostelería. 
-                    Con foco técnico en desarrollo backend, arquitectura orientada a datos y automatización mediante Java, Python y entornos SQL/NoSQL.<br>
-                    <br>Éste es mi portfolio.</p>
+                <!-- MODO MODERNO / SOBRIO (POR DEFECTO) -->
+                <div class="descripcion-standard">
+                    <p>Desarrollador de Aplicaciones Multiplataforma (DAM) con más de 20 años de experiencia previa en gestión operativa en hostelería. 
+                        Con foco técnico en desarrollo backend, arquitectura orientada a datos y automatización mediante Java, Python y entornos SQL/NoSQL.<br>
+                        <br>Éste es mi portfolio.</p>
+                </div>
+
+                <!-- MODO RETRO CRT TELETEXTO (AL ACTIVAR PAL-625) -->
+                <section class="descripcion-crt crt-manifest-box" aria-label="Manifiesto del sistema en modo CRT">
+                    <div class="manifest-titlebar">
+                        <span class="titlebar-file">&gt; SYS_MANIFEST.LOG // ABOUT_PABLO.TXT</span>
+                        <span class="titlebar-version">[RGB_625_ACTIVE]</span>
+                    </div>
+                    <div class="manifest-content">
+                        <div class="manifest-row">
+                            <span class="row-tag tag-green">&gt; PERFIL:</span>
+                            <span class="row-text">Desarrollador de Aplicaciones Multiplataforma (DAM).</span>
+                        </div>
+                        <div class="manifest-row">
+                            <span class="row-tag tag-blue">&gt; BACKGROUND:</span>
+                            <span class="row-text">+20 años de liderazgo operativo en hostelería de alta exigencia.</span>
+                        </div>
+                        <div class="manifest-row">
+                            <span class="row-tag tag-green">&gt; ENFOQUE:</span>
+                            <span class="row-text">Desarrollo backend robusto, arquitectura orientada a datos y automatización.</span>
+                        </div>
+                        <div class="manifest-row">
+                            <span class="row-tag tag-red">&gt; STACK CORE:</span>
+                            <span class="row-text"><strong>Java, Python (FastAPI), Android (Kotlin), MongoDB, SQL/NoSQL.</strong></span>
+                        </div>
+                        <div class="manifest-row">
+                            <span class="row-tag tag-green">&gt; ESTADO:</span>
+                            <span class="row-text">Disponible para nuevos desafíos técnicos. Éste es mi portfolio.</span>
+                        </div>
+
+                        <div class="manifest-status-row">
+                            <span class="cursor-blink"></span>
+                            <span>SISTEMA EN LÍNEA // SEÑAL LISTA PARA EXPLORAR PROYECTOS</span>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <div id="proyectos" class="contenido">
@@ -420,7 +458,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js?v=7"></script>
+    <script src="js/script.js?v=8"></script>
 
 </body>
 

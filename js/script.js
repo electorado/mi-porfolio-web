@@ -120,3 +120,50 @@ const yearEl = document.getElementById('currentYear');
 if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
 }
+
+// --- MODO VIAJE EN EL TIEMPO: SOBRIO (MODERNO) <--> RETRO CRT (PAL-625) ---
+const modeToggleBtn = document.getElementById('modeToggleBtn');
+const modeToggleText = document.getElementById('modeToggleText');
+
+function aplicarModoCRT(activar, animar = true) {
+    if (activar) {
+        document.body.classList.add('modo-crt');
+        if (modeToggleText) {
+            modeToggleText.textContent = 'UHD 4K';
+        }
+        if (modeToggleBtn) {
+            modeToggleBtn.setAttribute('aria-label', 'Volver al modo contemporáneo UHD');
+            modeToggleBtn.setAttribute('title', 'Regresar al modo contemporáneo UHD');
+        }
+        localStorage.setItem('portfolioMode', 'crt');
+    } else {
+        document.body.classList.remove('modo-crt');
+        if (modeToggleText) {
+            modeToggleText.textContent = 'PAL - 625';
+        }
+        if (modeToggleBtn) {
+            modeToggleBtn.setAttribute('aria-label', 'Sintonizar modo CRT analógico PAL-625 (viaje en el tiempo)');
+            modeToggleBtn.setAttribute('title', 'Viajar al modo CRT analógico (PAL-625)');
+        }
+        localStorage.setItem('portfolioMode', 'uhd');
+    }
+
+    if (animar) {
+        document.body.classList.add('crt-switching');
+        setTimeout(() => {
+            document.body.classList.remove('crt-switching');
+        }, 300);
+    }
+}
+
+// Inicializar estado según localStorage (por defecto es modo contemporáneo sobrio)
+if (localStorage.getItem('portfolioMode') === 'crt') {
+    aplicarModoCRT(true, false);
+}
+
+if (modeToggleBtn) {
+    modeToggleBtn.addEventListener('click', () => {
+        const estaEnCRT = document.body.classList.contains('modo-crt');
+        aplicarModoCRT(!estaEnCRT, true);
+    });
+}
