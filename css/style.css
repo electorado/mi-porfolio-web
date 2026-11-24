@@ -1,7 +1,7 @@
 /* VARIABLES GLOBALES Y RESET */
 :root {
     --header-height: clamp(7.5rem, 16vw, 10rem);
-    --menu-width: clamp(14.5rem, 20vw, 18rem);
+    --menu-width: clamp(11.5rem, 15vw, 13.5rem);
     --color-bg: #171616;
     --color-text: #ebe1e1;
     --color-accent: #0000ae;
@@ -160,35 +160,35 @@ button.menu:hover {
     right: 0;
 }
 
-/* BARRA SUPERIOR DEL MENÚ CON BOTONES RETRO VINTAGE (INSPIRADOS EN CARTA DE AJUSTES) */
+/* BARRA SUPERIOR DEL MENÚ CON BOTONES RETRO VINTAGE (SOLO CASITA Y CRUZ) */
 .menu-top-bar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1rem 0 1rem;
+    padding: 0.85rem 0.85rem 0 0.85rem;
     z-index: 10;
-    gap: 0.5rem;
     box-sizing: border-box;
 }
 
-/* BOTONES RETRO OSD: HOME Y CERRAR */
+/* BOTONES RETRO OSD: HOME Y CERRAR (SOLO ICONOS EN CAJA RETRO) */
 .icono-home,
 button.cerrar-menu {
     background-color: #000000;
     color: #ffffff;
     border: 1.5px solid #ffffff;
     box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
-    padding: 0.35rem 0.55rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    padding: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.35rem;
     text-decoration: none;
-    font-family: 'Source Code Pro', monospace;
     cursor: pointer;
     border-radius: 0;
     transition: all 0.15s ease-out;
+    box-sizing: border-box;
 }
 
 .icono-home:hover,
@@ -200,40 +200,21 @@ button.cerrar-menu:hover {
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
 }
 
-.icono-home .btn-micro-label,
-button.cerrar-menu .btn-micro-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-}
-
 .icono-cerrar {
-    width: 0.95rem;
-    height: 0.95rem;
+    width: 1rem;
+    height: 1rem;
 }
 
-/* PLACA TÉCNICA OSD EN EL CENTRO DE LA CABECERA (ESTILO PHILIPS PM5544) */
-.menu-osd-badge {
-    background-color: rgba(0, 0, 0, 0.85);
-    color: #00e5ff;
-    border: 1px solid rgba(0, 229, 255, 0.6);
-    padding: 0.2rem 0.45rem;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    user-select: none;
-}
-
-/* CONTENEDOR DE OPCIONES DEL MENÚ */
+/* CONTENEDOR DE OPCIONES DEL MENÚ: DISTRIBUCIÓN VERTICAL HOMOGÉNEA */
 .menu-desplegado .items-menu {
+    flex: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: clamp(3.5rem, 12vh, 6.5rem);
-    text-align: left;
-    padding: 0 1rem;
-    margin-top: clamp(3rem, 10vh, 5.5rem);
+    justify-content: space-evenly;
+    align-items: stretch;
+    padding: 0.5rem 0.85rem;
+    margin: 0;
     box-sizing: border-box;
     z-index: 1;
 }
@@ -244,26 +225,26 @@ button.cerrar-menu .btn-micro-label {
     align-items: center;
     background-color: #000000;
     color: #ffffff;
-    border: 2px solid #ffffff;
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.95);
+    border: 1.5px solid #ffffff;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.95);
     font-family: 'Source Code Pro', monospace;
     text-decoration: none;
-    font-size: clamp(0.85rem, 2.4cqw, 1.1rem);
+    font-size: clamp(0.78rem, 2.2cqw, 0.98rem);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.65rem 0.85rem;
+    padding: 0.55rem 0.7rem;
     border-radius: 0;
     width: 100%;
     box-sizing: border-box;
-    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .menu-desplegado .items-menu a.menu-banner .banner-code {
     color: #00e5ff;
     font-size: 0.8em;
-    padding-right: 0.55rem;
-    margin-right: 0.55rem;
+    padding-right: 0.45rem;
+    margin-right: 0.45rem;
     border-right: 1.5px solid rgba(255, 255, 255, 0.4);
     flex-shrink: 0;
 }
@@ -281,7 +262,7 @@ button.cerrar-menu .btn-micro-label {
     color: #000000;
     border-color: #ffffff;
     transform: translateX(4px);
-    box-shadow: 6px 6px 0px rgba(0, 0, 0, 1);
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 1);
 }
 
 .menu-desplegado .items-menu a.menu-banner:hover .banner-code {
@@ -291,6 +272,47 @@ button.cerrar-menu .btn-micro-label {
 
 .menu-desplegado .items-menu a.menu-banner:hover .banner-title {
     color: #000000;
+}
+
+/* BLOQUE INFERIOR OSD CON RUIDO DE NIEVE DE TV (CARTA DE AJUSTE) */
+.menu-bottom-osd {
+    width: 100%;
+    margin-top: auto;
+    padding-bottom: clamp(0.8rem, 2.5vh, 1.8rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.osd-static-box {
+    width: 52%;
+    height: clamp(1.6rem, 3.2vh, 2rem);
+    background-color: #222222;
+    background-image: url('../img/ruido.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 1.5px solid #ffffff;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.osd-static-box .osd-text {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    padding: 0.12rem 0.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-family: 'Source Code Pro', monospace;
+    font-size: clamp(0.62rem, 1.6cqw, 0.74rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    user-select: none;
+    white-space: nowrap;
 }
 
 /* CONTENIDO PRINCIPAL (MAIN) */
@@ -596,7 +618,7 @@ body.menu-abierto footer {
 /* MEDIA QUERIES PARA DISPOSITIVOS MÓVILES (SMARTPHONE / PANTALLA VERTICAL) */
 @media (max-width: 768px) {
     :root {
-        --menu-width: clamp(13rem, 46vw, 16.5rem);
+        --menu-width: clamp(9.5rem, 33vw, 11.8rem);
     }
 
     header {
@@ -705,16 +727,40 @@ body.menu-abierto footer {
     }
 
     .menu-desplegado {
-        width: 18%;
+        width: clamp(9rem, 20vw, 11.5rem);
+    }
+
+    .menu-top-bar {
+        padding: 0.35rem 0.6rem 0;
+    }
+
+    .icono-home,
+    button.cerrar-menu {
+        width: 1.6rem;
+        height: 1.6rem;
     }
 
     .menu-desplegado .items-menu {
-        gap: 2rem;
-        margin-top: 1rem;
+        padding: 0.2rem 0.55rem;
     }
 
-    .menu-desplegado .items-menu a {
-        font-size: 1.2rem;
+    .menu-desplegado .items-menu a.menu-banner {
+        padding: 0.25rem 0.45rem;
+        font-size: 0.68rem;
+    }
+
+    .menu-bottom-osd {
+        padding-bottom: 0.3rem;
+    }
+
+    .osd-static-box {
+        height: 1.3rem;
+        width: 55%;
+    }
+
+    .osd-static-box .osd-text {
+        font-size: 0.52rem;
+        padding: 0.05rem 0.25rem;
     }
 
     .descripcion {
