@@ -1199,7 +1199,7 @@ body.crt-switching {
     }
 
     .descripcion {
-        padding-top: clamp(6.5rem, 15vh, 10rem);
+        padding-top: clamp(8.5rem, 18vh, 11.5rem);
         padding-bottom: clamp(4rem, 8vh, 6rem);
     }
 
@@ -1253,8 +1253,9 @@ body.crt-switching {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0.45rem 0.2rem;
-        font-size: clamp(0.85rem, 2.7vw, 1.02rem);
+        padding: 0.45rem 0.25rem;
+        font-size: clamp(0.72rem, 2.2vw, 0.88rem);
+        letter-spacing: 0.02em;
         box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.95);
     }
 
@@ -1332,6 +1333,11 @@ body.crt-switching {
 
     .row-tag {
         width: auto;
+    }
+
+    .manifest-titlebar {
+        font-size: 1.05rem;
+        padding: 0.35rem 0.65rem;
     }
 
     body.modo-crt .menu-desplegado .items-menu a.menu-banner {
