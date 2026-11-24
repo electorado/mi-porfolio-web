@@ -97,7 +97,11 @@ header {
 /* BOTÓN DE MENÚ (ORIGINAL CARTA DE AJUSTE) */
 button.menu {
     background: transparent;
+    background-color: transparent;
     border: none;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
     color: inherit;
     font: inherit;
     text-align: center;
