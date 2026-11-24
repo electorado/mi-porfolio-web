@@ -1270,9 +1270,9 @@ body.crt-switching {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 0.38rem 0.2rem;
-        font-size: clamp(0.72rem, 2.1vw, 0.84rem);
-        letter-spacing: 0.03em;
+        padding: 0.38rem 0.15rem;
+        font-size: clamp(0.65rem, 1.7vw, 0.76rem);
+        letter-spacing: 0.01em;
         box-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.95);
     }
 
