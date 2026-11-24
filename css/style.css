@@ -1,3 +1,28 @@
+/* FUENTES TIPOGRÁFICAS LOCALES Y RETRO */
+@font-face {
+    font-family: 'VT323';
+    src: url('../fonts/VT323-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('../fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wix Madefor Display';
+    src: url('../fonts/WixMadeforDisplay-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* VARIABLES GLOBALES Y RESET */
 :root {
     --header-height: clamp(7.5rem, 16vw, 10rem);
@@ -174,7 +199,7 @@ button.menu:hover {
 /* BOTONES RETRO OSD: HOME Y CERRAR (SOLO ICONOS EN CAJA RETRO) */
 .icono-home,
 button.cerrar-menu {
-    background-color: #000000;
+    background-color: var(--color-bg);
     color: #ffffff;
     border: 1.5px solid #ffffff;
     box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
@@ -194,7 +219,7 @@ button.cerrar-menu {
 .icono-home:hover,
 button.cerrar-menu:hover {
     background-color: #ffffff;
-    color: #000000;
+    color: var(--color-bg);
     border-color: #ffffff;
     transform: translateY(-1px);
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
@@ -219,21 +244,22 @@ button.cerrar-menu:hover {
     z-index: 1;
 }
 
-/* BOTONES DEL MENÚ ESTILO BANNER CARTA DE AJUSTES (INSPIRADOS EN 'USA POST' Y 'NO SIGNAL') */
+/* BOTONES DEL MENÚ ESTILO BANNER CARTA DE AJUSTES (INSPIRADOS EN 'USA POST' Y 'NO SIGNAL' CON FUENTE RETRO VT323) */
 .menu-desplegado .items-menu a.menu-banner {
     display: flex;
     align-items: center;
-    background-color: #000000;
+    background-color: var(--color-bg);
     color: #ffffff;
     border: 1.5px solid #ffffff;
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.95);
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'VT323', monospace;
     text-decoration: none;
-    font-size: clamp(0.78rem, 2.2cqw, 0.98rem);
-    font-weight: 600;
+    font-size: clamp(1.2rem, 3.2cqw, 1.55rem);
+    font-weight: 400;
     letter-spacing: 0.08em;
+    line-height: 1.1;
     text-transform: uppercase;
-    padding: 0.55rem 0.7rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 0;
     width: 100%;
     box-sizing: border-box;
@@ -242,11 +268,12 @@ button.cerrar-menu:hover {
 
 .menu-desplegado .items-menu a.menu-banner .banner-code {
     color: #00e5ff;
-    font-size: 0.8em;
-    padding-right: 0.45rem;
-    margin-right: 0.45rem;
+    font-size: 1.05em;
+    padding-right: 0.5rem;
+    margin-right: 0.5rem;
     border-right: 1.5px solid rgba(255, 255, 255, 0.4);
     flex-shrink: 0;
+    line-height: 1;
 }
 
 .menu-desplegado .items-menu a.menu-banner .banner-title {
@@ -254,24 +281,25 @@ button.cerrar-menu:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1;
 }
 
 /* EFECTO HOVER ESTILO MONITOR CRT INVERTIDO */
 .menu-desplegado .items-menu a.menu-banner:hover {
     background-color: #ffffff;
-    color: #000000;
+    color: var(--color-bg);
     border-color: #ffffff;
     transform: translateX(4px);
-    box-shadow: 5px 5px 0px rgba(0, 0, 0, 1);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
 }
 
 .menu-desplegado .items-menu a.menu-banner:hover .banner-code {
-    color: #000000;
-    border-right-color: rgba(0, 0, 0, 0.4);
+    color: var(--color-bg);
+    border-right-color: rgba(23, 22, 22, 0.4);
 }
 
 .menu-desplegado .items-menu a.menu-banner:hover .banner-title {
-    color: #000000;
+    color: var(--color-bg);
 }
 
 /* BLOQUE INFERIOR OSD CON RUIDO DE NIEVE DE TV (CARTA DE AJUSTE) */
@@ -289,7 +317,7 @@ button.cerrar-menu:hover {
 .osd-static-box {
     width: 52%;
     height: clamp(1.6rem, 3.2vh, 2rem);
-    background-color: #222222;
+    background-color: var(--color-bg);
     background-image: url('../img/ruido.jpg');
     background-size: cover;
     background-position: center;
@@ -302,17 +330,18 @@ button.cerrar-menu:hover {
 }
 
 .osd-static-box .osd-text {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: var(--color-bg);
     color: #ffffff;
-    padding: 0.12rem 0.35rem;
+    padding: 0.12rem 0.4rem;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    font-family: 'Source Code Pro', monospace;
-    font-size: clamp(0.62rem, 1.6cqw, 0.74rem);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-family: 'VT323', monospace;
+    font-size: clamp(0.95rem, 2.4cqw, 1.15rem);
+    font-weight: 400;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     user-select: none;
     white-space: nowrap;
+    line-height: 1;
 }
 
 /* CONTENIDO PRINCIPAL (MAIN) */
@@ -746,7 +775,7 @@ body.menu-abierto footer {
 
     .menu-desplegado .items-menu a.menu-banner {
         padding: 0.25rem 0.45rem;
-        font-size: 0.68rem;
+        font-size: 0.95rem;
     }
 
     .menu-bottom-osd {
@@ -759,7 +788,7 @@ body.menu-abierto footer {
     }
 
     .osd-static-box .osd-text {
-        font-size: 0.52rem;
+        font-size: 0.75rem;
         padding: 0.05rem 0.25rem;
     }
 
